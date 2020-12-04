@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */; };
 		C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */; };
 		C6AA1A23257ACB98006CCF44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */; };
 		C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A24257ACB98006CCF44 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		C6AA1A1D257ACB98006CCF44 /* Bully Sheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bully Sheet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */,
 				C6AA1A3D257AD55B006CCF44 /* MainVC.swift */,
 				C6AA1A3A257AD54D006CCF44 /* StartVC.swift */,
+				C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */,
 				C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */,
 				C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */,
+				C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */,
 				C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */,
 				C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */,
 				C6AA1A23257ACB98006CCF44 /* SceneDelegate.swift in Sources */,

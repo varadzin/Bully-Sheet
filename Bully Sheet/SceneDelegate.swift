@@ -19,38 +19,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = createTabbar()
+        window?.rootViewController = CustomTabBar()
         window?.makeKeyAndVisible()
         }
 
     
     
-    func createStartVC() -> UINavigationController {
-        let startVC = StartVC()
-        startVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
-        return UINavigationController(rootViewController: startVC)
-        
-    }
-    
-    func createMainVC() -> UINavigationController {
-        let mainVC = MainVC()
-        
-        mainVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
-        return UINavigationController(rootViewController: mainVC)
-    }
-    
-    func createCalendarVC() -> UINavigationController {
-        let calendarVC = CalendarVC()
-        calendarVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
-        return UINavigationController(rootViewController: calendarVC)
-    }
-    
-    func createTabbar() -> UITabBarController {
-        let tabbar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemBlue
-        tabbar.viewControllers = [createStartVC(), createMainVC(),createCalendarVC() ]
-        return tabbar
-    }
+//    func createStartVC() -> UINavigationController {
+//        let startVC = StartVC()
+//        startVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+//        return UINavigationController(rootViewController: startVC)
+//
+//    }
+//
+//    func createMainVC() -> UINavigationController {
+//        let mainVC = MainVC()
+//
+//        mainVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+//        return UINavigationController(rootViewController: mainVC)
+//    }
+//
+//    func createCalendarVC() -> UINavigationController {
+//        let calendarVC = CalendarVC()
+//        calendarVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+//        return UINavigationController(rootViewController: calendarVC)
+//    }
+//
+//    func createTabbar() -> UITabBarController {
+//        let tabbar = UITabBarController()
+//        UITabBar.appearance().tintColor = .systemBlue
+//        tabbar.viewControllers = [createStartVC(), createMainVC(),createCalendarVC() ]
+//        return tabbar
+//    }
     
     
     func sceneDidDisconnect(_ scene: UIScene) {

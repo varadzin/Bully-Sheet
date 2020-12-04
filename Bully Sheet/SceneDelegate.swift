@@ -23,14 +23,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         }
 
-    func createTabbar() -> UITabBarController {
-        let tabbar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemRed
-        tabbar.viewControllers = [
+  
+    
+    
+    func createStartVC() {
         
         
     }
     
+    func createMainVC() {
+        
+    }
+    
+    func createCalendarVC() {
+        
+        
+    }
+    
+    func createTabbar() -> UITabBarController {
+        let tabbar = UITabBarController()
+        UITabBar.appearance().tintColor = .systemRed
+        tabbar.viewControllers = [createStartVC(), createMainVC(), createCalendarVC()]
+        return tabbar
+       
+    }
     
     
     func sceneDidDisconnect(_ scene: UIScene) {

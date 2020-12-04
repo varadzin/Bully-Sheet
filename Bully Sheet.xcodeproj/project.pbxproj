@@ -13,6 +13,9 @@
 		C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A29257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld */; };
 		C6AA1A2D257ACB9D006CCF44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */; };
 		C6AA1A30257ACB9D006CCF44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AA1A2E257ACB9D006CCF44 /* LaunchScreen.storyboard */; };
+		C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A3A257AD54D006CCF44 /* StartVC.swift */; };
+		C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A3D257AD55B006CCF44 /* MainVC.swift */; };
+		C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6AA1A2F257ACB9D006CCF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6AA1A31257ACB9D006CCF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6AA1A3A257AD54D006CCF44 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
+		C6AA1A3D257AD55B006CCF44 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,10 @@
 		C6AA1A1F257ACB98006CCF44 /* Bully Sheet */ = {
 			isa = PBXGroup;
 			children = (
+				C6AA1A46257AD5FF006CCF44 /* Support */,
+				C6AA1A45257AD5F6006CCF44 /* Controller */,
+				C6AA1A44257AD5EE006CCF44 /* Model */,
+				C6AA1A43257AD5C7006CCF44 /* View */,
 				C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */,
 				C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */,
 				C6AA1A24257ACB98006CCF44 /* ViewController.swift */,
@@ -65,6 +75,37 @@
 				C6AA1A29257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld */,
 			);
 			path = "Bully Sheet";
+			sourceTree = "<group>";
+		};
+		C6AA1A43257AD5C7006CCF44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */,
+				C6AA1A3D257AD55B006CCF44 /* MainVC.swift */,
+				C6AA1A3A257AD54D006CCF44 /* StartVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C6AA1A44257AD5EE006CCF44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C6AA1A45257AD5F6006CCF44 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C6AA1A46257AD5FF006CCF44 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */,
+				C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */,
 				C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */,
 				C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */,
+				C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */,
 				C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */,
 				C6AA1A23257ACB98006CCF44 /* SceneDelegate.swift in Sources */,
 			);

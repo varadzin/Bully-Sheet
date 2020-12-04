@@ -23,29 +23,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         }
 
-  
     
     
-    func createStartVC() {
-        
+    func createStartVC() -> UINavigationController {
+        let startVC = StartVC()
+        startVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        return UINavigationController(rootViewController: startVC)
         
     }
     
-    func createMainVC() {
+    func createMainVC() -> UINavigationController {
+        let mainVC = MainVC()
         
+        mainVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        return UINavigationController(rootViewController: mainVC)
     }
     
-    func createCalendarVC() {
-        
-        
+    func createCalendarVC() -> UINavigationController {
+        let calendarVC = CalendarVC()
+        calendarVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+        return UINavigationController(rootViewController: calendarVC)
     }
     
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemRed
-        tabbar.viewControllers = [createStartVC(), createMainVC(), createCalendarVC()]
+        UITabBar.appearance().tintColor = .systemBlue
+        tabbar.viewControllers = [createStartVC(), createMainVC(),createCalendarVC() ]
         return tabbar
-       
     }
     
     

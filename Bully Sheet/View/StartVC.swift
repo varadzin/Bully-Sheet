@@ -13,6 +13,8 @@ class StartVC: UIViewController {
     var bookImageBtn = UIButton()
     var bullyBtn = UIButton()
     var firstChapBtn = UIButton()
+    var howBtn = UIButton()
+    var buyBtn = UIButton()
     
     
     override func viewDidLoad() {
@@ -23,6 +25,9 @@ class StartVC: UIViewController {
         configBookImgBtn()
         configBullyBtn()
         configFirstChapBtn()
+        configHowBtn()
+        configBuyBtn()
+        
     }
     
     
@@ -38,8 +43,8 @@ class StartVC: UIViewController {
             bookImageBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             bookImageBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -200),
             bookImageBtn.heightAnchor.constraint(equalTo: bookImageBtn.widthAnchor)
-                  ])
-        }
+        ])
+    }
     
     func configBullyBtn() {
         view.addSubview(bullyBtn)
@@ -54,8 +59,8 @@ class StartVC: UIViewController {
             bullyBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             bullyBtn.widthAnchor.constraint(equalToConstant: 260),
             bullyBtn.heightAnchor.constraint(equalToConstant: 200)
-                 ])
-            }
+        ])
+    }
     
     func configFirstChapBtn() {
         view.addSubview(firstChapBtn)
@@ -70,10 +75,45 @@ class StartVC: UIViewController {
             firstChapBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             firstChapBtn.widthAnchor.constraint(equalToConstant: 90),
             firstChapBtn.heightAnchor.constraint(equalToConstant: 90)
+        ])
+    }
+    
+    func configHowBtn() {
+        view.addSubview(howBtn)
         
+        let howBtnImg = UIImage(named: "how")
+        let howHiBtnImg = UIImage(named: "how-hi")
+        howBtn.setBackgroundImage(howBtnImg, for: .normal)
+        howBtn.setBackgroundImage(howHiBtnImg, for: .highlighted)
+        howBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            howBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            howBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            howBtn.widthAnchor.constraint(equalToConstant: 90),
+            howBtn.heightAnchor.constraint(equalToConstant: 90)
+        ])
+    }
+    
+    func configBuyBtn() {
+        view.addSubview(buyBtn)
+        
+        let buyBtnImg = UIImage(named: "buy")
+        let buyHiBtnImg = UIImage(named: "buy-hi")
+        buyBtn.setBackgroundImage(buyBtnImg, for: .normal)
+        buyBtn.setBackgroundImage(buyHiBtnImg, for: .highlighted)
+        buyBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            buyBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            buyBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            buyBtn.widthAnchor.constraint(equalToConstant: 90),
+            buyBtn.heightAnchor.constraint(equalToConstant: 90)
+            
         ])
     }
     
     
     
-    }
+    
+}

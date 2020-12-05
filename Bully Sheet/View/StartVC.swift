@@ -12,6 +12,7 @@ class StartVC: UIViewController {
     var padding: CGFloat = 20
     var bookImageBtn = UIButton()
     var bullyBtn = UIButton()
+    var firstChapBtn = UIButton()
     
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class StartVC: UIViewController {
         
         configBookImgBtn()
         configBullyBtn()
+        configFirstChapBtn()
     }
     
     
@@ -55,7 +57,22 @@ class StartVC: UIViewController {
                  ])
             }
     
-    
+    func configFirstChapBtn() {
+        view.addSubview(firstChapBtn)
+        let firstChapBtnImg = UIImage(named: "first-chapter")
+        let firstChapHiBtnImg = UIImage(named: "first-chapter-hi")
+        firstChapBtn.setBackgroundImage(firstChapBtnImg, for: .normal)
+        firstChapBtn.setBackgroundImage(firstChapHiBtnImg, for: .highlighted)
+        firstChapBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            firstChapBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            firstChapBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            firstChapBtn.widthAnchor.constraint(equalToConstant: 90),
+            firstChapBtn.heightAnchor.constraint(equalToConstant: 90)
+        
+        ])
+    }
     
     
     

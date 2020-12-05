@@ -10,10 +10,18 @@ import UIKit
 class MainVC: UIViewController {
     
     var padding: CGFloat = 20
+    
     var redBtn = UIButton()
     var orangeBtn = UIButton()
     var greenBtn = UIButton()
     var lightsExplainImg = UIImageView()
+    var dayLabel = UILabel()
+    
+    var habitLabel1 = HabitLabel(text: " 1.habit")
+    var habitLabel2 = HabitLabel(text: " 2.habit")
+    var habitLabel3 = HabitLabel(text: " 3.habit")
+    var habitLabel4 = HabitLabel(text: " 4.habit")
+    var habitLabel5 = HabitLabel(text: " 5.habit")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,32 +29,110 @@ class MainVC: UIViewController {
         
         addBarButton()
         clearBarButton()
+        configDayLabel()
+        configHabitLbl4()
+        configHabitLbl3()
+        configHabitLbl2()
+        configHabitLbl1()
+        configHabitLbl5()
         configLightExplainImg()
-       
         configOrangeBtn()
         configRedBtn()
         configGreenBtn()
         
+    }
+    
+    
+    
+    func configDayLabel() {
+        view.addSubview(dayLabel)
+        
+        dayLabel.text = "<<         today        >>"
+        dayLabel.textColor = .label
+        dayLabel.font = UIFont(name: "Arial", size: 25)
+        dayLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            dayLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dayLabel.widthAnchor.constraint(equalToConstant: 250),
+            dayLabel.heightAnchor.constraint(equalToConstant: 30)
+        ])
         
     }
+    
+    func configHabitLbl1() {
+        view.addSubview(habitLabel1)
+        
+        NSLayoutConstraint.activate([
+            habitLabel1.bottomAnchor.constraint(equalTo: habitLabel2.topAnchor, constant: -padding),
+            habitLabel1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            habitLabel1.widthAnchor.constraint(equalToConstant: 240),
+            habitLabel1.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    
+    func configHabitLbl2() {
+        view.addSubview(habitLabel2)
+        
+        NSLayoutConstraint.activate([
+            habitLabel2.bottomAnchor.constraint(equalTo: habitLabel3.topAnchor, constant: -padding),
+            habitLabel2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            habitLabel2.widthAnchor.constraint(equalToConstant: 240),
+            habitLabel2.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func configHabitLbl3() {
+        view.addSubview(habitLabel3)
+        
+        NSLayoutConstraint.activate([
+            habitLabel3.bottomAnchor.constraint(equalTo: habitLabel4.topAnchor, constant: -padding),
+            habitLabel3.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            habitLabel3.widthAnchor.constraint(equalToConstant: 240),
+            habitLabel3.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func configHabitLbl4() {
+        view.addSubview(habitLabel4)
+        
+        NSLayoutConstraint.activate([
+            habitLabel4.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            habitLabel4.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            habitLabel4.widthAnchor.constraint(equalToConstant: 240),
+            habitLabel4.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func configHabitLbl5() {
+        view.addSubview(habitLabel5)
+        
+        NSLayoutConstraint.activate([
+            habitLabel5.topAnchor.constraint(equalTo: habitLabel4.bottomAnchor, constant: padding),
+            habitLabel5.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            habitLabel5.widthAnchor.constraint(equalToConstant: 240),
+            habitLabel5.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    
     func configOrangeBtn() {
         view.addSubview(orangeBtn)
         let orangeBtnImg = UIImage(named: "orange-light")
         let orangeHiBtnImg = UIImage(named: "orange-light-hi")
         orangeBtn.setBackgroundImage(orangeBtnImg, for: .normal)
         orangeBtn.setBackgroundImage(orangeHiBtnImg, for: .highlighted)
-       orangeBtn.translatesAutoresizingMaskIntoConstraints = false
+        orangeBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            orangeBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            orangeBtn.topAnchor.constraint(equalTo: habitLabel3.topAnchor),
             orangeBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             orangeBtn.widthAnchor.constraint(equalToConstant: 60),
             orangeBtn.heightAnchor.constraint(equalToConstant: 60)
         ])
-        
     }
-    
-    
     
     func configRedBtn() {
         view.addSubview(redBtn)
@@ -62,7 +148,6 @@ class MainVC: UIViewController {
             redBtn.widthAnchor.constraint(equalToConstant: 60),
             redBtn.heightAnchor.constraint(equalToConstant: 60)
         ])
-        
     }
     
     func configGreenBtn() {
@@ -79,7 +164,6 @@ class MainVC: UIViewController {
             greenBtn.widthAnchor.constraint(equalToConstant: 60),
             greenBtn.heightAnchor.constraint(equalToConstant: 60)
         ])
-        
     }
     
     func configLightExplainImg() {
@@ -93,7 +177,7 @@ class MainVC: UIViewController {
             lightsExplainImg.widthAnchor.constraint(equalToConstant: 250),
             lightsExplainImg.heightAnchor.constraint(equalToConstant: 90)
         ])
-         }
+    }
     
     
     

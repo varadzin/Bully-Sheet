@@ -48,6 +48,9 @@ class StartVC: UIViewController {
     
     func configBullyBtn() {
         view.addSubview(bullyBtn)
+        
+        bullyBtn.addTarget(self, action: #selector(bullyBtnTapped), for: .touchUpInside)
+        
         let bullyBtnImg = UIImage(named: "bully")
         let bullyHiBtnImg = UIImage(named: "bully-hi")
         bullyBtn.setBackgroundImage(bullyBtnImg, for: .normal)
@@ -113,7 +116,14 @@ class StartVC: UIViewController {
         ])
     }
     
+    @objc func bullyBtnTapped() {
+                   
     
+
+     
+                navigationController?.pushViewController(MainVC(), animated: true)
+            }
+        
     
     
 }

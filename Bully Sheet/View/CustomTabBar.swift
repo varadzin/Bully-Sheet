@@ -15,7 +15,7 @@ class CustomTabBar: UITabBarController {
         let bar2 = createTabBarController(vc: MainVC(), title: "Habits", image: #imageLiteral(resourceName: "main-icon"))
         let bar3 = createTabBarController(vc: CalendarVC(), title: "Overview", image: #imageLiteral(resourceName: "calendar-icon"))
         viewControllers = [bar1, bar2, bar3]
-    }
+            }
     
     
     func createTabBarController(vc: UIViewController, title: String, image: UIImage) -> UINavigationController {

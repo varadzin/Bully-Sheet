@@ -23,6 +23,7 @@ class MainVC: UIViewController {
     var habitLabel4 = HabitLabel(text: " 4.habit")
     var habitLabel5 = HabitLabel(text: " 5.habit")
     var habitTextField = UITextField()
+    var userInput = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,20 +213,16 @@ class MainVC: UIViewController {
     
     func alert() {
         
-        
         let dialogMessage = UIAlertController(title: "Enter your Habit", message: nil, preferredStyle: .alert)
         let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height: 26))
         label.textAlignment = .center
         label.font = label.font.withSize(14)
         dialogMessage.view.addSubview(label)
-        label.isHidden = true
         
-        let create = UIAlertAction(title: "Create", style: .default, handler: { (action) -> Void in
+        
+        let create = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
             if let userInput = self.habitTextField.text {
                 if userInput == "" {
-                    label.text = ""
-                    label.text = "Please enter name of habit"
-                    label.isHidden = false
                     self.present(dialogMessage, animated: true, completion: nil)
                 }
             }
@@ -237,7 +234,6 @@ class MainVC: UIViewController {
         
         dialogMessage.addAction(cancel)
         dialogMessage.addAction(create)
-        
         dialogMessage.addTextField { (textField) -> Void in
             self.habitTextField = textField
         }

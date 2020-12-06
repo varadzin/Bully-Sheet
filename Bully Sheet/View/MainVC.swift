@@ -22,6 +22,7 @@ class MainVC: UIViewController {
     var habitLabel3 = HabitLabel(text: " 3.habit")
     var habitLabel4 = HabitLabel(text: " 4.habit")
     var habitLabel5 = HabitLabel(text: " 5.habit")
+    var habitTextField = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,10 +187,12 @@ class MainVC: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHabit))
         self.navigationItem.rightBarButtonItem = addButton
         addButton.tintColor = .systemRed
+        
     }
     
     @objc func addHabit() {
         
+        alert()
         
     }
     
@@ -203,6 +206,43 @@ class MainVC: UIViewController {
     
     @objc func clearHabit() {
         
+        
+    }
+    
+    
+    func alert() {
+        
+        
+        let dialogMessage = UIAlertController(title: "Enter your Habit", message: nil, preferredStyle: .alert)
+        let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height: 26))
+        label.textAlignment = .center
+        label.font = label.font.withSize(14)
+        dialogMessage.view.addSubview(label)
+        label.isHidden = true
+        
+        let create = UIAlertAction(title: "Create", style: .default, handler: { (action) -> Void in
+            if let userInput = self.habitTextField.text {
+                if userInput == "" {
+                    label.text = ""
+                    label.text = "Please enter name of habit"
+                    label.isHidden = false
+                    self.present(dialogMessage, animated: true, completion: nil)
+                }
+            }
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        dialogMessage.addAction(cancel)
+        dialogMessage.addAction(create)
+        
+        dialogMessage.addTextField { (textField) -> Void in
+            self.habitTextField = textField
+        }
+        
+        self.present(dialogMessage, animated: true, completion: nil)
         
     }
     

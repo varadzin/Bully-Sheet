@@ -12,16 +12,17 @@ class HabitLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configHabitLbl()
+    
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(text: String) {
-        self.init(frame: .zero)
-        self.text = text
-    }
+//    convenience init(text: String) {
+//        self.init(frame: .zero)
+//        self.text = text
+//    }
     
     
     func configHabitLbl() {

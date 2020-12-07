@@ -17,17 +17,26 @@ class MainVC: UIViewController {
     var lightsExplainImg = UIImageView()
     var dayLabel = UILabel()
     
-    var habitLabel1 = HabitLabel(text: " 1.habit")
-    var habitLabel2 = HabitLabel(text: " 2.habit")
-    var habitLabel3 = HabitLabel(text: " 3.habit")
-    var habitLabel4 = HabitLabel(text: " 4.habit")
-    var habitLabel5 = HabitLabel(text: " 5.habit")
+    
+    
+    var habit1 = ""
+    var habit2 = ""
+    var habit3 = ""
+    var habit4 = ""
+    var habit5 = ""
+    
+    var habitLabel1 = HabitLabel()
+    var habitLabel2 = HabitLabel()
+    var habitLabel3 = HabitLabel()
+    var habitLabel4 = HabitLabel()
+    var habitLabel5 = HabitLabel()
     var habitTextField = UITextField()
     var userInput = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
         
         addBarButton()
         clearBarButton()
@@ -224,6 +233,30 @@ class MainVC: UIViewController {
             if let userInput = self.habitTextField.text {
                 if userInput == "" {
                     self.present(dialogMessage, animated: true, completion: nil)
+                } else {
+                  
+                    if self.habit1 == "" {
+                    self.habit1 = userInput
+                    self.habitLabel1.text = self.habit1
+                        print(self.habit1) } else {
+                            if self.habit2 == "" {
+                            self.habit2 = userInput
+                                self.habitLabel2.text = self.habit2 } else {
+                                    if self.habit3 == "" {
+                                    self.habit3 = userInput
+                                        self.habitLabel3.text = self.habit3 } else {
+                                            if self.habit4 == "" {
+                                            self.habit4 = userInput
+                                                self.habitLabel4.text = self.habit4 } else {
+                                                    if self.habit5 == "" {
+                                                    self.habit5 = userInput
+                                                        self.habitLabel5.text = self.habit5 } else {
+                                                            print("all full")
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
                 }
             }
         })
@@ -240,6 +273,8 @@ class MainVC: UIViewController {
         
         self.present(dialogMessage, animated: true, completion: nil)
         
-    }
     
+    
+
+}
 }

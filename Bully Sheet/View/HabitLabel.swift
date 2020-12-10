@@ -19,10 +19,20 @@ class HabitLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    convenience init(text: String) {
-//        self.init(frame: .zero)
-//        self.text = text
-//    }
+    
+    
+    
+    
+    
+    //test 
+    
+    
+    
+    
+    convenience init(text: String) {
+        self.init(frame: .zero)
+        self.text = text
+    }
     
     
     func configHabitLbl() {

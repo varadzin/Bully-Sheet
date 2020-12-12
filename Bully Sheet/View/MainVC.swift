@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainVC: UIViewController {
     
@@ -271,10 +272,45 @@ class MainVC: UIViewController {
             self.habitTextField = textField
         }
         
-        self.present(dialogMessage, animated: true, completion: nil)
+        self.present(dialogMessage, animated: true, completion: saveData)
         
     
     
 
 }
+    func saveData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let entityName = "Habits"
+        
+        guard let newEntity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
+            return
+                 }
+        let newHabit = NSManagedObject(entity: newEntity, insertInto: context)
+        
+        let habitToSave1 = habit1
+        let habitToSave2 = habit2
+        let habitToSave3 = habit3
+        let habitToSave4 = habit4
+        let habitToSave5 = habit5
+        
+        newHabit.setValue(habitToSave1, forKey: "first_habit")
+        newHabit.setValue(habitToSave2, forKey: "second_habit")
+        newHabit.setValue(habitToSave3, forKey: "third_habit")
+        newHabit.setValue(habitToSave4, forKey: "fourth_habit")
+        newHabit.setValue(habitToSave5, forKey: "fifth_habit")
+        
+        do {
+            try context.save()
+            print(habitToSave1, habitToSave2, habitToSave3, habitToSave4, habitToSave5)
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    
 }

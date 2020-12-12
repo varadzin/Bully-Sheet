@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DA8202585456000B3BBDB /* SaveCoreData.swift */; };
 		C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */; };
 		C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA34257BFA3A00694B8A /* HabitLabel.swift */; };
 		C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C65DA8202585456000B3BBDB /* SaveCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCoreData.swift; sourceTree = "<group>"; };
 		C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		C67AAA34257BFA3A00694B8A /* HabitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLabel.swift; sourceTree = "<group>"; };
 		C6AA1A1D257ACB98006CCF44 /* Bully Sheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bully Sheet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 		C6AA1A44257AD5EE006CCF44 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C65DA8202585456000B3BBDB /* SaveCoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */,
 				C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */,
 				C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */,
+				C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */,
 				C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */,
 				C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */,
 				C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */,

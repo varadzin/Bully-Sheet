@@ -15,6 +15,7 @@ class MainVC: UIViewController {
     var redBtn = UIButton()
     var orangeBtn = UIButton()
     var greenBtn = UIButton()
+    
     var lightsExplainImg = UIImageView()
     var dayLabel = UILabel()
     
@@ -25,6 +26,12 @@ class MainVC: UIViewController {
     var habit3 = ""
     var habit4 = ""
     var habit5 = ""
+    
+    var readHabit1 = String()
+    var readHabit2 = String()
+    var readHabit3 = String()
+    var readHabit4 = String()
+    var readHabit5 = String()
     
     var habitLabel1 = HabitLabel()
     var habitLabel2 = HabitLabel()
@@ -53,6 +60,13 @@ class MainVC: UIViewController {
         configGreenBtn()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+        showData()
+    }
+    
     
     
     
@@ -238,21 +252,32 @@ class MainVC: UIViewController {
                   
                     if self.habit1 == "" {
                     self.habit1 = userInput
-                    self.habitLabel1.text = self.habit1
-                        print(self.habit1) } else {
+                        self.saveData()
+                        self.loadData()
+                        print("Loaded readHabit1: \(self.readHabit1)")
+                    self.habitLabel1.text = self.readHabit1
+                          } else {
                             if self.habit2 == "" {
                             self.habit2 = userInput
-                                self.habitLabel2.text = self.habit2 } else {
+                                self.saveData()
+                                self.loadData()
+                                self.habitLabel2.text = self.readHabit2 } else {
                                     if self.habit3 == "" {
                                     self.habit3 = userInput
-                                        self.habitLabel3.text = self.habit3 } else {
+                                        self.saveData()
+                                        self.loadData()
+                                        self.habitLabel3.text = self.readHabit3 } else {
                                             if self.habit4 == "" {
                                             self.habit4 = userInput
-                                                self.habitLabel4.text = self.habit4 } else {
+                                                self.saveData()
+                                                self.loadData()
+                                                self.habitLabel4.text = self.readHabit4 } else {
                                                     if self.habit5 == "" {
                                                     self.habit5 = userInput
-                                                        self.habitLabel5.text = self.habit5 } else {
-                                                            print("all full")
+                                                        self.saveData()
+                                                        self.loadData()
+                                                        self.habitLabel5.text = self.readHabit5 } else {
+                                                            print("all slots full")
                                                         }
                                                 }
                                         }
@@ -272,7 +297,7 @@ class MainVC: UIViewController {
             self.habitTextField = textField
         }
         
-        self.present(dialogMessage, animated: true, completion: saveData)
+        self.present(dialogMessage, animated: true, completion: nil)
         
     
     
@@ -305,10 +330,51 @@ class MainVC: UIViewController {
         
         do {
             try context.save()
-            print(habitToSave1, habitToSave2, habitToSave3, habitToSave4, habitToSave5)
+            print("1: \(habitToSave1) 2: \(habitToSave2) 3: \(habitToSave3) 4: \(habitToSave4) 5: \(habitToSave5)" )
         } catch {
             print(error)
         }
+        
+    }
+    
+    
+    func loadData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+                    }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let entityName = "Habits"
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        
+        do {
+            let results = try context.fetch(request)
+            
+            for r in results {
+                if let result = r as? NSManagedObject {
+                    
+                    readHabit1 = result.value(forKey: "first_habit") as! String
+                    
+                    readHabit2 = result.value(forKey: "second_habit") as! String
+                    readHabit3 = result.value(forKey: "third_habit") as! String
+                    readHabit4 = result.value(forKey: "fourth_habit") as! String
+                    readHabit5 = result.value(forKey: "fifth_habit") as! String
+                    
+                }
+            }
+        } catch {
+            print("Error - catch by loadData")
+        }
+         
+    }
+    
+    func showData() {
+        habitLabel1.text = readHabit1
+        habitLabel2.text = readHabit2
+        habitLabel3.text = readHabit3
+        habitLabel4.text = readHabit4
+        habitLabel5.text = readHabit5
         
     }
     

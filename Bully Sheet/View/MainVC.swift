@@ -15,7 +15,8 @@ class MainVC: UIViewController {
     var redBtn = UIButton()
     var orangeBtn = UIButton()
     var greenBtn = UIButton()
-    
+    var arrowLeftBtn = UIButton()
+    var arrowRightBtn = UIButton()
     var lightsExplainImg = UIImageView()
     var dayLabel = UILabel()
     
@@ -58,6 +59,8 @@ class MainVC: UIViewController {
         configOrangeBtn()
         configRedBtn()
         configGreenBtn()
+        configArrowLBtn()
+        configArrowRBtn()
         
     }
     
@@ -68,12 +71,47 @@ class MainVC: UIViewController {
     }
     
     
+    func configArrowLBtn() {
+        view.addSubview(arrowLeftBtn)
+        
+        arrowLeftBtn.setTitle("<<", for: .normal)
+        arrowLeftBtn.setTitleColor(.label, for: .normal)
+        arrowLeftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        
+        arrowLeftBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            arrowLeftBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -40),
+            arrowLeftBtn.widthAnchor.constraint(equalToConstant: 50),
+            arrowLeftBtn.heightAnchor.constraint(equalToConstant: 30)
+        ])
+       
+    }
     
+    
+    func configArrowRBtn() {
+        view.addSubview(arrowRightBtn)
+        
+        arrowRightBtn.setTitle(">>", for: .normal)
+        arrowRightBtn.setTitleColor(.label, for: .normal)
+        arrowRightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        
+        arrowRightBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            arrowRightBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 1),
+            arrowRightBtn.widthAnchor.constraint(equalToConstant: 50),
+            arrowRightBtn.heightAnchor.constraint(equalToConstant: 30)
+        ])
+       
+    }
     
     func configDayLabel() {
         view.addSubview(dayLabel)
         
-        dayLabel.text = "<<         today        >>"
+        dayLabel.text = "today"
         dayLabel.textColor = .label
         dayLabel.font = UIFont(name: "Arial", size: 25)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +119,7 @@ class MainVC: UIViewController {
         NSLayoutConstraint.activate([
             dayLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
             dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dayLabel.widthAnchor.constraint(equalToConstant: 250),
+            dayLabel.widthAnchor.constraint(equalToConstant: 100),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         

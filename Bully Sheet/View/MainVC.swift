@@ -291,7 +291,7 @@ let year = Calendar.current.component(.year, from: myDate)
     
     
     func addBarButton() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHabit))
+        let addButton = UIBarButtonItem(title: "Add habit", style: .done, target: self, action: #selector(addHabit))
         self.navigationItem.rightBarButtonItem = addButton
         addButton.tintColor = .systemRed
         

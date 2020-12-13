@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Datumy" representedClassName="Datumy" syncable="YES" codeGenerationType="class">
-        <attribute name="datum" optional="YES" attributeType="String"/>
-    </entity>
     <entity name="Habits" representedClassName="Habits" syncable="YES" codeGenerationType="class">
+        <attribute name="datum" optional="YES" attributeType="String"/>
         <attribute name="fifth_habit" optional="YES" attributeType="String"/>
         <attribute name="first_habit" optional="YES" attributeType="String"/>
         <attribute name="fourth_habit" optional="YES" attributeType="String"/>
         <attribute name="second_habit" optional="YES" attributeType="String"/>
+        <attribute name="state1" optional="YES" attributeType="String"/>
+        <attribute name="state2" optional="YES" attributeType="String"/>
+        <attribute name="state3" optional="YES" attributeType="String"/>
+        <attribute name="state4" optional="YES" attributeType="String"/>
+        <attribute name="state5" optional="YES" attributeType="String"/>
         <attribute name="third_habit" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Habits" positionX="-54" positionY="-9" width="128" height="104"/>
-        <element name="Datumy" positionX="-45" positionY="36" width="128" height="44"/>
+        <element name="Habits" positionX="-54" positionY="-9" width="128" height="208"/>
     </elements>
 </model>

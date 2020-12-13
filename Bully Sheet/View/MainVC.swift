@@ -10,6 +10,8 @@ import CoreData
 
 class MainVC: UIViewController {
     
+//    var allHabits: [Habits]?
+    
     var padding: CGFloat = 20
     
     var redBtn = UIButton()
@@ -392,18 +394,16 @@ let year = Calendar.current.component(.year, from: myDate)
         
         let context = appDelegate.persistentContainer.viewContext
         let entityName = "Habits"
-        let entityName2 = "Datumy"
+ 
         
         guard let newEntity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
             return
                  }
-        guard let newEntity2 = NSEntityDescription.entity(forEntityName: entityName2, in: context) else {
-            return
-                 }
+     
         
         
         let newHabit = NSManagedObject(entity: newEntity, insertInto: context)
-        let newDate = NSManagedObject(entity: newEntity2, insertInto: context)
+   
         
         let habitToSave1 = habit1
         let habitToSave2 = habit2
@@ -417,7 +417,7 @@ let year = Calendar.current.component(.year, from: myDate)
         newHabit.setValue(habitToSave3, forKey: "third_habit")
         newHabit.setValue(habitToSave4, forKey: "fourth_habit")
         newHabit.setValue(habitToSave5, forKey: "fifth_habit")
-        newDate.setValue(novyDatum, forKey: "datum")
+        newHabit.setValue(novyDatum, forKey: "datum")
         
         do {
             try context.save()
@@ -436,10 +436,10 @@ let year = Calendar.current.component(.year, from: myDate)
         
         let context = appDelegate.persistentContainer.viewContext
         let entityName = "Habits"
-        let entityName2 = "Datumy"
+
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let request2 = NSFetchRequest<NSFetchRequestResult>(entityName: entityName2)
+
         
         do {
             let results = try context.fetch(request)
@@ -447,35 +447,23 @@ let year = Calendar.current.component(.year, from: myDate)
             for r in results {
                 if let result = r as? NSManagedObject {
                     
+                    print("Results: \(results)")
+                    
+                    
                     readHabit1 = result.value(forKey: "first_habit") as! String
                     
                     readHabit2 = result.value(forKey: "second_habit") as! String
                     readHabit3 = result.value(forKey: "third_habit") as! String
                     readHabit4 = result.value(forKey: "fourth_habit") as! String
                     readHabit5 = result.value(forKey: "fifth_habit") as! String
-                    
+                    readDate = result.value(forKey: "datum") as! String
                 }
             }
         } catch {
             print("Error - catch by loadData")
         }
          
-        do {
-            let results = try context.fetch(request2)
-            
-            for r in results {
-                if let result = r as? NSManagedObject {
-                    
-                    readDate = result.value(forKey: "datum") as! String
-                    
-                   
-                    
-                }
-            }
-        } catch {
-            print("Error - catch by loadData")
-        }
-        
+              
         
     }
     

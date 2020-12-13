@@ -36,6 +36,8 @@ class MainVC: UIViewController {
     var readHabit4 = String()
     var readHabit5 = String()
     
+    var readDate = String()
+    
     var habitLabel1 = HabitLabel()
     var habitLabel2 = HabitLabel()
     var habitLabel3 = HabitLabel()
@@ -132,14 +134,20 @@ let year = Calendar.current.component(.year, from: myDate)
     @objc func leftBtnTapped() {
     changeDate = changeDate - 1
     dateOnScreen()
-    configDayLabel()
+        saveData()
+        loadData()
+             showData()
+        configDayLabel()
     }
 
 
     @objc func rightBtnTapped() {
     changeDate = changeDate + 1
     dateOnScreen()
-    configDayLabel()
+        saveData()
+        loadData()
+        showData()
+        configDayLabel()
     }
     
     
@@ -384,27 +392,36 @@ let year = Calendar.current.component(.year, from: myDate)
         
         let context = appDelegate.persistentContainer.viewContext
         let entityName = "Habits"
+        let entityName2 = "Datumy"
         
         guard let newEntity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
             return
                  }
+        guard let newEntity2 = NSEntityDescription.entity(forEntityName: entityName2, in: context) else {
+            return
+                 }
+        
+        
         let newHabit = NSManagedObject(entity: newEntity, insertInto: context)
+        let newDate = NSManagedObject(entity: newEntity2, insertInto: context)
         
         let habitToSave1 = habit1
         let habitToSave2 = habit2
         let habitToSave3 = habit3
         let habitToSave4 = habit4
         let habitToSave5 = habit5
+        let novyDatum = todaysDate
         
         newHabit.setValue(habitToSave1, forKey: "first_habit")
         newHabit.setValue(habitToSave2, forKey: "second_habit")
         newHabit.setValue(habitToSave3, forKey: "third_habit")
         newHabit.setValue(habitToSave4, forKey: "fourth_habit")
         newHabit.setValue(habitToSave5, forKey: "fifth_habit")
+        newDate.setValue(novyDatum, forKey: "datum")
         
         do {
             try context.save()
-            print("1: \(habitToSave1) 2: \(habitToSave2) 3: \(habitToSave3) 4: \(habitToSave4) 5: \(habitToSave5)" )
+            print("datum: \(novyDatum) 1: \(habitToSave1) 2: \(habitToSave2) 3: \(habitToSave3) 4: \(habitToSave4) 5: \(habitToSave5)" )
         } catch {
             print(error)
         }
@@ -419,8 +436,10 @@ let year = Calendar.current.component(.year, from: myDate)
         
         let context = appDelegate.persistentContainer.viewContext
         let entityName = "Habits"
+        let entityName2 = "Datumy"
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let request2 = NSFetchRequest<NSFetchRequestResult>(entityName: entityName2)
         
         do {
             let results = try context.fetch(request)
@@ -441,6 +460,23 @@ let year = Calendar.current.component(.year, from: myDate)
             print("Error - catch by loadData")
         }
          
+        do {
+            let results = try context.fetch(request2)
+            
+            for r in results {
+                if let result = r as? NSManagedObject {
+                    
+                    readDate = result.value(forKey: "datum") as! String
+                    
+                   
+                    
+                }
+            }
+        } catch {
+            print("Error - catch by loadData")
+        }
+        
+        
     }
     
     func showData() {
@@ -449,6 +485,7 @@ let year = Calendar.current.component(.year, from: myDate)
         habitLabel3.text = readHabit3
         habitLabel4.text = readHabit4
         habitLabel5.text = readHabit5
+        print("novy nacitany datum je: \(readDate)")
         
     }
     

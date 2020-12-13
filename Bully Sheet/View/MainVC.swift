@@ -19,6 +19,7 @@ class MainVC: UIViewController {
     var arrowRightBtn = UIButton()
     var lightsExplainImg = UIImageView()
     var dayLabel = UILabel()
+    var todaysDate = String()
     
     
     
@@ -49,6 +50,7 @@ class MainVC: UIViewController {
         
         addBarButton()
         clearBarButton()
+        dateOnScreen()
         configDayLabel()
         configHabitLbl4()
         configHabitLbl3()
@@ -61,6 +63,7 @@ class MainVC: UIViewController {
         configGreenBtn()
         configArrowLBtn()
         configArrowRBtn()
+       
         
     }
     
@@ -68,6 +71,22 @@ class MainVC: UIViewController {
         super.viewWillAppear(animated)
         loadData()
         showData()
+    }
+    
+    
+    func dateOnScreen() {
+        
+        let today = Date()
+//        let midnight = Calendar.current.startOfDay(for: today)
+
+        let weekday = Calendar.current.component(.weekday, from: today)
+         let month = Calendar.current.component(.month, from: today)
+         let date = Calendar.current.component(.day, from: today)
+        let year = Calendar.current.component(.year, from: today)
+todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
+        print(todaysDate)
+//        let future = Calendar.current.date(byAdding: .day, value: 2, to: midnight)!
+        
     }
     
     
@@ -82,7 +101,7 @@ class MainVC: UIViewController {
         
         NSLayoutConstraint.activate([
             arrowLeftBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -40),
+            arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -10),
             arrowLeftBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowLeftBtn.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -101,7 +120,7 @@ class MainVC: UIViewController {
         
         NSLayoutConstraint.activate([
             arrowRightBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 1),
+            arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
             arrowRightBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowRightBtn.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -111,15 +130,16 @@ class MainVC: UIViewController {
     func configDayLabel() {
         view.addSubview(dayLabel)
         
-        dayLabel.text = "today"
+        dayLabel.text = "\(todaysDate)"
         dayLabel.textColor = .label
-        dayLabel.font = UIFont(name: "Arial", size: 25)
+        dayLabel.textAlignment = .center
+        dayLabel.font = UIFont(name: "Arial", size: 18)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             dayLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
             dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dayLabel.widthAnchor.constraint(equalToConstant: 100),
+            dayLabel.widthAnchor.constraint(equalToConstant: 200),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         

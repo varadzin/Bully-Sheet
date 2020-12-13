@@ -20,6 +20,7 @@ class MainVC: UIViewController {
     var lightsExplainImg = UIImageView()
     var dayLabel = UILabel()
     var todaysDate = String()
+    var changeDate = Int()
     
     
     
@@ -75,19 +76,16 @@ class MainVC: UIViewController {
     
     
     func dateOnScreen() {
-        
-        let today = Date()
-//        let midnight = Calendar.current.startOfDay(for: today)
+let today = Date()
+let midnight = Calendar.current.startOfDay(for: today)
+let myDate = Calendar.current.date(byAdding: .day, value: changeDate, to: midnight)!
 
-        let weekday = Calendar.current.component(.weekday, from: today)
-         let month = Calendar.current.component(.month, from: today)
-         let date = Calendar.current.component(.day, from: today)
-        let year = Calendar.current.component(.year, from: today)
-todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
-        print(todaysDate)
-//        let future = Calendar.current.date(byAdding: .day, value: 2, to: midnight)!
-        
-    }
+let weekday = Calendar.current.component(.weekday, from: myDate)
+ let month = Calendar.current.component(.month, from: myDate)
+ let date = Calendar.current.component(.day, from: myDate)
+let year = Calendar.current.component(.year, from: myDate)
+    todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
+}
     
     
     func configArrowLBtn() {
@@ -96,6 +94,8 @@ todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar
         arrowLeftBtn.setTitle("<<", for: .normal)
         arrowLeftBtn.setTitleColor(.label, for: .normal)
         arrowLeftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        
+        arrowLeftBtn.addTarget(self, action: #selector(leftBtnTapped), for: .touchUpInside)
         
         arrowLeftBtn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -116,6 +116,8 @@ todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar
         arrowRightBtn.setTitleColor(.label, for: .normal)
         arrowRightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         
+        arrowRightBtn.addTarget(self, action: #selector(rightBtnTapped), for: .touchUpInside)
+        
         arrowRightBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -126,6 +128,20 @@ todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar
         ])
        
     }
+    
+    @objc func leftBtnTapped() {
+    changeDate = changeDate - 1
+    dateOnScreen()
+    configDayLabel()
+    }
+
+
+    @objc func rightBtnTapped() {
+    changeDate = changeDate + 1
+    dateOnScreen()
+    configDayLabel()
+    }
+    
     
     func configDayLabel() {
         view.addSubview(dayLabel)
@@ -139,7 +155,7 @@ todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar
         NSLayoutConstraint.activate([
             dayLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
             dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dayLabel.widthAnchor.constraint(equalToConstant: 200),
+            dayLabel.widthAnchor.constraint(equalToConstant: 220),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         

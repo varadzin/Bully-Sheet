@@ -440,13 +440,7 @@ let year = Calendar.current.component(.year, from: myDate)
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
 
-        
-        
-        
-        
-        
-        
-        
+       
         
         do {
             let results = try context.fetch(request)

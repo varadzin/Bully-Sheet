@@ -479,19 +479,7 @@ let year = Calendar.current.component(.year, from: myDate)
     }
     
     
-
-
-
-//test
-
-
-
-
-
-
-
-
-
+}
 
 
 

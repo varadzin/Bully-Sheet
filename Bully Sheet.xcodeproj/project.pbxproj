@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DA8202585456000B3BBDB /* SaveCoreData.swift */; };
+		C66329682599CC7600EAD83C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66329672599CC7600EAD83C /* WebView.swift */; };
 		C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */; };
 		C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA34257BFA3A00694B8A /* HabitLabel.swift */; };
 		C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		C65DA8202585456000B3BBDB /* SaveCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCoreData.swift; sourceTree = "<group>"; };
+		C66329672599CC7600EAD83C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		C67AAA34257BFA3A00694B8A /* HabitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLabel.swift; sourceTree = "<group>"; };
 		C6AA1A1D257ACB98006CCF44 /* Bully Sheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bully Sheet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				C6AA1A3A257AD54D006CCF44 /* StartVC.swift */,
 				C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */,
 				C67AAA34257BFA3A00694B8A /* HabitLabel.swift */,
+				C66329672599CC7600EAD83C /* WebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */,
 				C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */,
 				C6AA1A23257ACB98006CCF44 /* SceneDelegate.swift in Sources */,
+				C66329682599CC7600EAD83C /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

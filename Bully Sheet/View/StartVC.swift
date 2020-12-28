@@ -124,6 +124,12 @@ class StartVC: UIViewController {
                 navigationController?.pushViewController(MainVC(), animated: true)
             }
         
+    @objc func firstChapBtnTapped() {
+        
+        
+    }
+    
+    
     
     
 }

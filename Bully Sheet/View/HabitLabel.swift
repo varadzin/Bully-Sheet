@@ -38,8 +38,6 @@ class HabitLabel: UILabel {
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 12
         
-        
-        
     }
     
     

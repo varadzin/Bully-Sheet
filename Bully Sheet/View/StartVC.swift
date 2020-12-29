@@ -30,7 +30,11 @@ class StartVC: UIViewController {
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.isHidden = true
+    }
     
     func configBookImgBtn() {
         view.addSubview(bookImageBtn)
@@ -71,6 +75,9 @@ class StartVC: UIViewController {
         let firstChapHiBtnImg = UIImage(named: "first-chapter-hi")
         firstChapBtn.setBackgroundImage(firstChapBtnImg, for: .normal)
         firstChapBtn.setBackgroundImage(firstChapHiBtnImg, for: .highlighted)
+        
+        firstChapBtn.addTarget(self, action: #selector(firstChapBtnTapped), for: .touchUpInside)
+        
         firstChapBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -117,16 +124,12 @@ class StartVC: UIViewController {
     }
     
     @objc func bullyBtnTapped() {
-                   
-    
-
-     
-                navigationController?.pushViewController(MainVC(), animated: true)
+                   navigationController?.pushViewController(MainVC(), animated: true)
             }
         
     @objc func firstChapBtnTapped() {
         
-        
+        navigationController?.pushViewController(WebView(), animated: true)
     }
     
     

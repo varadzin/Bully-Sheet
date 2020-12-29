@@ -22,7 +22,10 @@ class WebView: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = false
         setupUI()
+        backBarButton()
+        
         let myUrl = URL(string: "https://www.konec-prokrastinace.cz/homepage/")
         let myRequest = URLRequest(url: myUrl!)
         webView.load(myRequest)
@@ -30,6 +33,7 @@ class WebView: UIViewController, WKUIDelegate {
         
     }
     
+   
     
     func setupUI() {
         view.backgroundColor = .systemBackground
@@ -44,6 +48,14 @@ class WebView: UIViewController, WKUIDelegate {
         
     }
     
+    func backBarButton() {
+        let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(goBack))
+        self.navigationItem.leftBarButtonItem = backButton
+        backButton.tintColor = .systemRed
+    }
     
-    
+    @objc func goBack() {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
 }

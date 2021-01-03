@@ -95,6 +95,9 @@ class StartVC: UIViewController {
         let howHiBtnImg = UIImage(named: "how-hi")
         howBtn.setBackgroundImage(howBtnImg, for: .normal)
         howBtn.setBackgroundImage(howHiBtnImg, for: .highlighted)
+        
+        howBtn.addTarget(self, action: #selector(howBtnTapped), for: .touchUpInside)
+        
         howBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -112,6 +115,8 @@ class StartVC: UIViewController {
         let buyHiBtnImg = UIImage(named: "buy-hi")
         buyBtn.setBackgroundImage(buyBtnImg, for: .normal)
         buyBtn.setBackgroundImage(buyHiBtnImg, for: .highlighted)
+        
+        buyBtn.addTarget(self, action: #selector(buyBtnTapped), for: .touchUpInside)
         buyBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -133,6 +138,15 @@ class StartVC: UIViewController {
     }
     
     
+    @objc func howBtnTapped() {
+        
+        navigationController?.pushViewController(WebView2(), animated: true)
+    }
+ 
     
+    @objc func buyBtnTapped() {
+        
+        navigationController?.pushViewController(WebView3(), animated: true)
+    }
     
 }

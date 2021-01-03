@@ -1,5 +1,5 @@
 //
-//  WebView.swift
+//  WebView2.swift
 //  Bully Sheet
 //
 //  Created by Frantisek Varadzin on 28/12/2020.
@@ -8,7 +8,7 @@
 import WebKit
 import UIKit
 
-class WebView: UIViewController, WKUIDelegate {
+class WebView2: UIViewController, WKUIDelegate {
     
     lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
@@ -29,7 +29,7 @@ class WebView: UIViewController, WKUIDelegate {
         
         
         
-        let myUrl = URL(string: "https://www.konec-prokrastinace.cz/homepage/")
+        let myUrl = URL(string: "https://www.youtube.com/watch?v=Km_kGQyIjUw")
         let myRequest = URLRequest(url: myUrl!)
         webView.load(myRequest)
             

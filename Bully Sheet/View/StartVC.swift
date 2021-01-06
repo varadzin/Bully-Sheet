@@ -129,7 +129,7 @@ class StartVC: UIViewController {
     }
     
     @objc func bullyBtnTapped() {
-                   navigationController?.pushViewController(MainVC(), animated: true)
+                   navigationController?.pushViewController(TableView(), animated: true)
             }
         
     @objc func firstChapBtnTapped() {

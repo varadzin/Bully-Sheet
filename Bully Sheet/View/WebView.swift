@@ -29,7 +29,7 @@ class WebView: UIViewController, WKUIDelegate {
         
         
         
-        let myUrl = URL(string: "https://www.konec-prokrastinace.cz/homepage/")
+        let myUrl = URL(string: "https://procrastination.com/assets/frontend/img/The%20End%20of%20Procrastination%20-%20free%20chapter.pdf")
         let myRequest = URLRequest(url: myUrl!)
         webView.load(myRequest)
             

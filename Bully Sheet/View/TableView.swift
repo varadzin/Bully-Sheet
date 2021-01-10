@@ -22,6 +22,7 @@ func configTableView() {
     view.addSubview(myTableView)
     setTableViewDelegates()
     myTableView.rowHeight = 60
+    myTableView.register(HabitCell.self, forCellReuseIdentifier: "HabitCell")
     
     
     
@@ -57,7 +58,11 @@ extension TableView: UITabBarDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell") as! HabitCell
+        
+        
+        
+        return cell
         
         
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class CheckBox: UIView {
 
-    var checkBoxState = "red"
+  
     
     
     override init(frame: CGRect) {
@@ -23,20 +23,6 @@ class CheckBox: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func checkBoxColor() {
-       
-        if checkBoxState == "red" {
-            backgroundColor = .systemRed
-        } else if checkBoxState == "orange" {
-            backgroundColor = .systemOrange
-        } else {
-            backgroundColor = .systemGreen
-            checkBoxState = "green"
-        }
-        
-        
-        
-    }
-    
+
 
 }

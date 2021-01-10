@@ -12,6 +12,7 @@
 		C663296C25A1E64800EAD83C /* WebView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663296B25A1E64800EAD83C /* WebView2.swift */; };
 		C663296F25A1E88A00EAD83C /* WebView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663296E25A1E88A00EAD83C /* WebView3.swift */; };
 		C663297225A2036D00EAD83C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663297125A2036D00EAD83C /* TableView.swift */; };
+		C663297525AB3D9600EAD83C /* HabitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663297425AB3D9600EAD83C /* HabitCell.swift */; };
 		C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */; };
 		C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA34257BFA3A00694B8A /* HabitLabel.swift */; };
 		C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		C663296B25A1E64800EAD83C /* WebView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView2.swift; sourceTree = "<group>"; };
 		C663296E25A1E88A00EAD83C /* WebView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView3.swift; sourceTree = "<group>"; };
 		C663297125A2036D00EAD83C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		C663297425AB3D9600EAD83C /* HabitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		C67AAA34257BFA3A00694B8A /* HabitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLabel.swift; sourceTree = "<group>"; };
 		C6AA1A1D257ACB98006CCF44 /* Bully Sheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bully Sheet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 				C663297125A2036D00EAD83C /* TableView.swift */,
 				C663296B25A1E64800EAD83C /* WebView2.swift */,
 				C663296E25A1E88A00EAD83C /* WebView3.swift */,
+				C663297425AB3D9600EAD83C /* HabitCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */,
 				C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */,
 				C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */,
+				C663297525AB3D9600EAD83C /* HabitCell.swift in Sources */,
 				C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */,
 				C663296F25A1E88A00EAD83C /* WebView3.swift in Sources */,
 				C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */,

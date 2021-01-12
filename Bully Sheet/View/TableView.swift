@@ -33,12 +33,9 @@ var myTableView = UITableView()
         view.backgroundColor = .systemBackground
         
         addBarButton()
-
         dateOnScreen()
         configDayLabel()
-      
         configLightExplainImg()
-
         configArrowLBtn()
         configArrowRBtn()
     }
@@ -58,10 +55,11 @@ func configTableView() {
     
     
     NSLayoutConstraint.activate([
-        myTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-        myTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220),
+        myTableView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        
         myTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-        myTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        myTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        myTableView.heightAnchor.constraint(equalToConstant: 300)
     
     ])
     
@@ -104,7 +102,7 @@ let year = Calendar.current.component(.year, from: myDate)
         arrowLeftBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            arrowLeftBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            arrowLeftBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -padding),
             arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -10),
             arrowLeftBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowLeftBtn.heightAnchor.constraint(equalToConstant: 30)
@@ -125,7 +123,7 @@ let year = Calendar.current.component(.year, from: myDate)
         arrowRightBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            arrowRightBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            arrowRightBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -padding),
             arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
             arrowRightBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowRightBtn.heightAnchor.constraint(equalToConstant: 30)
@@ -158,7 +156,7 @@ let year = Calendar.current.component(.year, from: myDate)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dayLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            dayLabel.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -padding),
             dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dayLabel.widthAnchor.constraint(equalToConstant: 220),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)

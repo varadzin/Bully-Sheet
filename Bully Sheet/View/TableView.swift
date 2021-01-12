@@ -43,7 +43,7 @@ var myTableView = UITableView()
 func configTableView() {
     view.addSubview(myTableView)
     setTableViewDelegates()
-    myTableView.rowHeight = 60
+    myTableView.rowHeight = 50
     myTableView.register(HabitCell.self, forCellReuseIdentifier: "HabitCell")
     
     
@@ -59,7 +59,7 @@ func configTableView() {
         
         myTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
         myTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-        myTableView.heightAnchor.constraint(equalToConstant: 300)
+        myTableView.heightAnchor.constraint(equalToConstant: 250)
     
     ])
     
@@ -102,7 +102,7 @@ let year = Calendar.current.component(.year, from: myDate)
         arrowLeftBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            arrowLeftBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -padding),
+            arrowLeftBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -40),
             arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -10),
             arrowLeftBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowLeftBtn.heightAnchor.constraint(equalToConstant: 30)
@@ -123,7 +123,7 @@ let year = Calendar.current.component(.year, from: myDate)
         arrowRightBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            arrowRightBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -padding),
+            arrowRightBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -40),
             arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
             arrowRightBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowRightBtn.heightAnchor.constraint(equalToConstant: 30)
@@ -156,7 +156,7 @@ let year = Calendar.current.component(.year, from: myDate)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dayLabel.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -padding),
+            dayLabel.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -40),
             dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dayLabel.widthAnchor.constraint(equalToConstant: 220),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)

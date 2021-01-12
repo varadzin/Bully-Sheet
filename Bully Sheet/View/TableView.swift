@@ -33,8 +33,8 @@ func configTableView() {
     
     
     NSLayoutConstraint.activate([
-        myTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-        myTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+        myTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+        myTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220),
         myTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
         myTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
     
@@ -53,7 +53,7 @@ func configTableView() {
 
 extension TableView: UITabBarDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 5
         
     }
     

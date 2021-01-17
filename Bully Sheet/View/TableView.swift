@@ -94,12 +94,13 @@ let weekday = Calendar.current.component(.weekday, from: myDate)
  let date = Calendar.current.component(.day, from: myDate)
 let year = Calendar.current.component(.year, from: myDate)
     todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
+        print(changeDate)
 }
     
     func configAddHabitBtn() {
         view.addSubview(addHabitBtn)
         
-        addHabitBtn.layer.borderWidth = 0.1
+        addHabitBtn.layer.borderWidth = 0.2
         addHabitBtn.layer.borderColor = UIColor.systemRed.cgColor
         addHabitBtn.layer.cornerRadius = 10
         addHabitBtn.setTitle("Add Habbit", for: .normal)
@@ -119,12 +120,14 @@ let year = Calendar.current.component(.year, from: myDate)
     func configTodayBtn() {
         view.addSubview(todayBtn)
         
-        todayBtn.layer.borderWidth = 0.1
+        todayBtn.addTarget(self, action: #selector(goToday), for: .touchUpInside)
+        
+        todayBtn.layer.borderWidth = 0.2
         todayBtn.layer.borderColor = UIColor.systemGreen.cgColor
         todayBtn.layer.cornerRadius = 10
         todayBtn.setTitle("Today", for: .normal)
         todayBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        todayBtn.setTitleColor(.systemRed, for: .normal)
+        todayBtn.setTitleColor(.systemGreen, for: .normal)
         
         todayBtn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -134,6 +137,15 @@ let year = Calendar.current.component(.year, from: myDate)
             todayBtn.widthAnchor.constraint(equalToConstant: 100),
             todayBtn.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+    }
+    
+    @objc func goToday() {
+        
+       
+        changeDate = 0
+        dateOnScreen()
+        configDayLabel()
         
     }
     
@@ -149,7 +161,7 @@ let year = Calendar.current.component(.year, from: myDate)
         arrowLeftBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            arrowLeftBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -40),
+            arrowLeftBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -45),
             arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -10),
             arrowLeftBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowLeftBtn.heightAnchor.constraint(equalToConstant: 30)
@@ -170,7 +182,7 @@ let year = Calendar.current.component(.year, from: myDate)
         arrowRightBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            arrowRightBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -40),
+            arrowRightBtn.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -45),
             arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
             arrowRightBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowRightBtn.heightAnchor.constraint(equalToConstant: 30)
@@ -203,7 +215,7 @@ let year = Calendar.current.component(.year, from: myDate)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dayLabel.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -40),
+            dayLabel.bottomAnchor.constraint(equalTo: myTableView.topAnchor, constant: -45),
             dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dayLabel.widthAnchor.constraint(equalToConstant: 220),
             dayLabel.heightAnchor.constraint(equalToConstant: 30)

@@ -14,9 +14,9 @@ class TableView: UIViewController, UITableViewDelegate {
 var myTableView = UITableView()
     var padding: CGFloat = 20
     
-    var redBtn = UIButton()
-    var orangeBtn = UIButton()
-    var greenBtn = UIButton()
+//    var redBtn = UIButton()
+//    var orangeBtn = UIButton()
+//    var greenBtn = UIButton()
     var arrowLeftBtn = UIButton()
     var arrowRightBtn = UIButton()
     var lightsExplainImg = UIImageView()
@@ -25,6 +25,11 @@ var myTableView = UITableView()
     var changeDate = Int()
     var habitTextField = UITextField()
     var userInput = String()
+    var addHabitBtn = UIButton()
+    var todayBtn = UIButton()
+    
+    
+    
     
     
     override func viewDidLoad() {

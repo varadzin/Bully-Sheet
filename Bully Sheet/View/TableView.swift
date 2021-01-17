@@ -43,6 +43,8 @@ var myTableView = UITableView()
         configLightExplainImg()
         configArrowLBtn()
         configArrowRBtn()
+        configAddHabitBtn()
+        configTodayBtn()
     }
 
 func configTableView() {
@@ -54,7 +56,7 @@ func configTableView() {
     
     
     
-    view.backgroundColor = .systemPink
+
     
     myTableView.translatesAutoresizingMaskIntoConstraints = false
     
@@ -94,6 +96,46 @@ let year = Calendar.current.component(.year, from: myDate)
     todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
 }
     
+    func configAddHabitBtn() {
+        view.addSubview(addHabitBtn)
+        
+        addHabitBtn.layer.borderWidth = 0.1
+        addHabitBtn.layer.borderColor = UIColor.systemRed.cgColor
+        addHabitBtn.layer.cornerRadius = 10
+        addHabitBtn.setTitle("Add Habbit", for: .normal)
+        addHabitBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        addHabitBtn.setTitleColor(.systemRed, for: .normal)
+        
+        addHabitBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            addHabitBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            addHabitBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+            addHabitBtn.widthAnchor.constraint(equalToConstant: 100),
+            addHabitBtn.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func configTodayBtn() {
+        view.addSubview(todayBtn)
+        
+        todayBtn.layer.borderWidth = 0.1
+        todayBtn.layer.borderColor = UIColor.systemGreen.cgColor
+        todayBtn.layer.cornerRadius = 10
+        todayBtn.setTitle("Today", for: .normal)
+        todayBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        todayBtn.setTitleColor(.systemRed, for: .normal)
+        
+        todayBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            todayBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            todayBtn.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            todayBtn.widthAnchor.constraint(equalToConstant: 100),
+            todayBtn.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+    }
     
     func configArrowLBtn() {
         view.addSubview(arrowLeftBtn)

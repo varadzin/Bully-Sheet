@@ -32,6 +32,9 @@ class HabitCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+  
+    
+    
     func configHabitLbl() {
         habitLabel.numberOfLines = 0
         habitLabel.adjustsFontSizeToFitWidth = true

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableView: UIViewController, UITableViewDelegate {
+class TableView: UIViewController {
     
 
             
@@ -27,7 +27,8 @@ var myTableView = UITableView()
     var userInput = String()
     var addHabitBtn = UIButton()
     var todayBtn = UIButton()
-    
+    var yourHabits : [String] = []
+    var messageInWindow = String()
     
     
     
@@ -37,7 +38,7 @@ var myTableView = UITableView()
         configTableView()
         view.backgroundColor = .systemBackground
         
-        addBarButton()
+   
         dateOnScreen()
         configDayLabel()
         configLightExplainImg()
@@ -47,11 +48,14 @@ var myTableView = UITableView()
         configTodayBtn()
     }
 
+  
+    
+    
 func configTableView() {
     view.addSubview(myTableView)
     setTableViewDelegates()
     myTableView.rowHeight = 50
-    myTableView.register(HabitCell.self, forCellReuseIdentifier: "HabitCell")
+    myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HabitCell")
     
     
     
@@ -76,14 +80,10 @@ func configTableView() {
         myTableView.delegate = self
         myTableView.dataSource = self
         
-        
     }
     
-
-
-
     
-    
+  //set day and date to show
     func dateOnScreen() {
 let today = Date()
 let midnight = Calendar.current.startOfDay(for: today)
@@ -94,11 +94,13 @@ let weekday = Calendar.current.component(.weekday, from: myDate)
  let date = Calendar.current.component(.day, from: myDate)
 let year = Calendar.current.component(.year, from: myDate)
     todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
-        print(changeDate)
+     
 }
     
     func configAddHabitBtn() {
         view.addSubview(addHabitBtn)
+        
+        addHabitBtn.addTarget(self, action: #selector(addHabit), for: .touchUpInside)
         
         addHabitBtn.layer.borderWidth = 0.2
         addHabitBtn.layer.borderColor = UIColor.systemRed.cgColor
@@ -239,12 +241,7 @@ let year = Calendar.current.component(.year, from: myDate)
     
     
     
-    func addBarButton() {
-        let addButton = UIBarButtonItem(title: "Add habit", style: .done, target: self, action: #selector(addHabit))
-        self.navigationItem.rightBarButtonItem = addButton
-        addButton.tintColor = .systemRed
-        
-    }
+  
     
     @objc func addHabit() {
         
@@ -258,7 +255,14 @@ let year = Calendar.current.component(.year, from: myDate)
     
     func alert() {
         
-        let dialogMessage = UIAlertController(title: "Enter your Habit", message: nil, preferredStyle: .alert)
+        if yourHabits.count >= 4 {
+            messageInWindow = "Too much habits wont work"
+        } else {
+            messageInWindow = ""
+        }
+        
+        
+        let dialogMessage = UIAlertController(title: "Enter your Habit", message: messageInWindow, preferredStyle: .alert)
         let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height: 26))
         label.textAlignment = .center
         label.font = label.font.withSize(14)
@@ -269,9 +273,11 @@ let year = Calendar.current.component(.year, from: myDate)
             if let userInput = self.habitTextField.text {
                 if userInput == "" {
                     self.present(dialogMessage, animated: true, completion: nil)
-                }
-    
-}
+                } else {
+                self.yourHabits.append(userInput)
+                print(self.yourHabits)
+                    self.myTableView.reloadData()
+                }}
 
         }
         )
@@ -291,18 +297,25 @@ let year = Calendar.current.component(.year, from: myDate)
     }
 }
 
-extension TableView: UITabBarDelegate, UITableViewDataSource {
+extension TableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return yourHabits.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell") as! HabitCell
-        
-        
-        
+//        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell") as! HabitCell
+        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
+        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
+       
         return cell
+        
+        
+//        let yourHabit = yourHabits[indexPath.row]
+//        cell.set(yourHabit: yourHabit)
+        
+         
+      
         
         
     }

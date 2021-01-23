@@ -29,7 +29,7 @@ var myTableView = UITableView()
     var todayBtn = UIButton()
     var yourHabits : [String] = []
     var messageInWindow = String()
-    
+    var habitStatus = String()
     
     
     
@@ -55,7 +55,7 @@ func configTableView() {
     view.addSubview(myTableView)
     setTableViewDelegates()
     myTableView.rowHeight = 50
-    myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HabitCell")
+    myTableView.register(HabitCell.self, forCellReuseIdentifier: "HabitCell")
     
     
     
@@ -304,19 +304,46 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell") as! HabitCell
-        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
-        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
+        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell") as! HabitCell
+//        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
+//        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
+        cell.habitLabel.text = "\(yourHabits[indexPath.row])"
        
         return cell
         
-        
-//        let yourHabit = yourHabits[indexPath.row]
-//        cell.set(yourHabit: yourHabit)
-        
-         
-      
-        
-        
     }
-}
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            yourHabits.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+     
+            let completeGreen = completeAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [completeGreen])
+            
+        }
+        
+        func completeAction(at indexPath: IndexPath) -> UIContextualAction {
+            let action = UIContextualAction(style: .normal, title: "Complete") { (action, view, completition) in
+                self.habitStatus = "green"
+                completition(true)
+            }
+            action.title = "✔️"
+            action.backgroundColor = .green
+        return action
+        }
+    }
+    
+    
+

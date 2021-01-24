@@ -12,7 +12,7 @@ class CustomTabBar: UITabBarController {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemRed
         let bar1 = createTabBarController(vc: StartVC(), title: "Home", image: #imageLiteral(resourceName: "start-icon"))
-        let bar2 = createTabBarController(vc: MainVC(), title: "Habits", image: #imageLiteral(resourceName: "main-icon"))
+        let bar2 = createTabBarController(vc: TableView(), title: "Habits", image: #imageLiteral(resourceName: "main-icon"))
         let bar3 = createTabBarController(vc: CalendarVC(), title: "Overview", image: #imageLiteral(resourceName: "calendar-icon"))
         viewControllers = [bar1, bar2, bar3]
             }

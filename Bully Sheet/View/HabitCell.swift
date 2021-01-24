@@ -24,10 +24,9 @@ class HabitCell: UITableViewCell {
     
     
     func configHabitLbl() {
-        habitLabel.numberOfLines = 0
+        habitLabel.numberOfLines = 1
         habitLabel.adjustsFontSizeToFitWidth = true
-        habitLabel.preferredMaxLayoutWidth = 500
-    
+
         
         habitLabel.translatesAutoresizingMaskIntoConstraints = false
         

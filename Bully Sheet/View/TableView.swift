@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TableView: UIViewController {
     
@@ -30,12 +31,17 @@ class TableView: UIViewController {
     var habitStatus = String()
     var colorsExplainText = UITextView()
     
+    var readHabit1 = String()
+    var readHabit2 = String()
+    var readHabit3 = String()
+    var readHabit4 = String()
+    var readHabit5 = String()
     
-    
+    var readDate = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .systemBackground
         dateOnScreen()
         configDayBtn()
@@ -119,21 +125,22 @@ class TableView: UIViewController {
         view.addSubview(addHabitBtn)
         
         addHabitBtn.addTarget(self, action: #selector(addHabit), for: .touchUpInside)
-        
-        addHabitBtn.layer.borderWidth = 0.2
-        addHabitBtn.layer.borderColor = UIColor.systemRed.cgColor
-        addHabitBtn.layer.cornerRadius = 10
-        addHabitBtn.setTitle("Add Habbit", for: .normal)
-        addHabitBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+//
+//        addHabitBtn.layer.borderWidth = 0.2
+//        addHabitBtn.layer.borderColor = UIColor.systemRed.cgColor
+//        addHabitBtn.layer.cornerRadius = 10
+        addHabitBtn.setTitle("+", for: .normal)
+        addHabitBtn.titleLabel?.font = UIFont.systemFont(ofSize: 60)
+//        addHabitBtn.titleLabel?.textAlignment = .center
         addHabitBtn.setTitleColor(.systemRed, for: .normal)
         
         addHabitBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            addHabitBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            addHabitBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             addHabitBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addHabitBtn.widthAnchor.constraint(equalToConstant: 100),
-            addHabitBtn.heightAnchor.constraint(equalToConstant: 40)
+            addHabitBtn.widthAnchor.constraint(equalToConstant: 120),
+            addHabitBtn.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
@@ -321,6 +328,7 @@ class TableView: UIViewController {
         
         dialogMessage.addAction(cancel)
         dialogMessage.addAction(create)
+        
         dialogMessage.addTextField { (textField) -> Void in
             self.habitTextField = textField
         }
@@ -329,6 +337,9 @@ class TableView: UIViewController {
         
     }
 }
+
+
+
 
 extension TableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -341,6 +352,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         //        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
         //        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
         cell.habitLabel.text = "\(yourHabits[indexPath.row])"
+        cell.habitLabel.minimumScaleFactor = 12
         
         return cell
         
@@ -406,6 +418,97 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         return actionRed
     }
     
+    
+    func saveData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let entityName = "Habits"
+ 
+        
+        guard let newEntity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
+            return
+                 }
+     
+        
+        
+        let newHabit = NSManagedObject(entity: newEntity, insertInto: context)
+   
+        
+//        let habitToSave1 = habit1
+//        let habitToSave2 = habit2
+//        let habitToSave3 = habit3
+//        let habitToSave4 = habit4
+//        let habitToSave5 = habit5
+//        let novyDatum = todaysDate
+        
+        newHabit.setValue(yourHabits[0], forKey: "first_habit")
+        newHabit.setValue(yourHabits[1], forKey: "second_habit")
+        newHabit.setValue(yourHabits[2], forKey: "third_habit")
+        newHabit.setValue(yourHabits[3], forKey: "fourth_habit")
+        newHabit.setValue(yourHabits[4], forKey: "fifth_habit")
+        newHabit.setValue(todaysDate, forKey: "datum")
+        
+        do {
+            try context.save()
+            print("datum: \(todaysDate) 1: \(yourHabits[0]) 2: \(yourHabits[1]) 3: \(yourHabits[2]) 4: \(yourHabits[3]) 5: \(yourHabits[4])" )
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    
+    func loadData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+                    }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let entityName = "Habits"
+
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+
+       
+        
+        do {
+            let results = try context.fetch(request)
+            
+            for r in results {
+                if let result = r as? NSManagedObject {
+                    
+                    print("Results: \(results)")
+                    
+                    
+                    readHabit1 = result.value(forKey: "first_habit") as! String
+
+                    readHabit2 = result.value(forKey: "second_habit") as! String
+                    readHabit3 = result.value(forKey: "third_habit") as! String
+                    readHabit4 = result.value(forKey: "fourth_habit") as! String
+                    readHabit5 = result.value(forKey: "fifth_habit") as! String
+                    readDate = result.value(forKey: "datum") as! String
+                }
+            }
+        } catch {
+            print("Error - catch by loadData")
+        }
+         
+              
+        
+    }
+    
+    func showData() {
+//        habitLabel1.text = readHabit1
+//        habitLabel2.text = readHabit2
+//        habitLabel3.text = readHabit3
+//        habitLabel4.text = readHabit4
+//        habitLabel5.text = readHabit5
+//        print("novy nacitany datum je: \(readDate)")
+        
+    }
     
 }
 

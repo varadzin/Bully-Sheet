@@ -47,6 +47,6 @@ class HabitCell: UITableViewCell {
             }
    
     
-
+  
     
 }

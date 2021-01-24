@@ -330,19 +330,50 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
      
             let completeGreen = completeAction(at: indexPath)
-            return UISwipeActionsConfiguration(actions: [completeGreen])
+        let notTodayOrange = notTodayAction(at: indexPath)
+        let notCompleteRed = notCompleteAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [completeGreen, notTodayOrange, notCompleteRed])
             
         }
         
         func completeAction(at indexPath: IndexPath) -> UIContextualAction {
-            let action = UIContextualAction(style: .normal, title: "Complete") { (action, view, completition) in
+            let actionGreen = UIContextualAction(style: .normal, title: "Complete") { (action, view, completition) in
                 self.habitStatus = "green"
+                
                 completition(true)
             }
-            action.title = "✔️"
-            action.backgroundColor = .green
-        return action
+            actionGreen.title = "🟢"
+            actionGreen.backgroundColor = .white
+            
+           
+        return actionGreen
         }
+    
+    func notTodayAction(at indexPath: IndexPath) -> UIContextualAction {
+        let actionOrange = UIContextualAction(style: .normal, title: "Not relevant Today") { (action, view, completition) in
+            self.habitStatus = "orange"
+            
+            completition(true)
+        }
+        actionOrange.title = "🟠"
+        actionOrange.backgroundColor = .systemGray5
+       
+    return actionOrange
+    }
+    
+    func notCompleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let actionRed = UIContextualAction(style: .normal, title: "Not Complete") { (action, view, completition) in
+            self.habitStatus = "red"
+            
+            completition(true)
+        }
+        actionRed.title = "🔴"
+        actionRed.backgroundColor = .white
+       
+    return actionRed
+    }
+    
+    
     }
     
     

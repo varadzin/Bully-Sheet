@@ -26,12 +26,14 @@ class HabitCell: UITableViewCell {
     func configHabitLbl() {
         habitLabel.numberOfLines = 0
         habitLabel.adjustsFontSizeToFitWidth = true
+        habitLabel.preferredMaxLayoutWidth = 500
+    
         
         habitLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            habitLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            habitLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            habitLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            habitLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             habitLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
             
         ])

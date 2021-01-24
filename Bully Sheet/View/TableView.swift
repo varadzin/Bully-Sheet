@@ -9,15 +9,15 @@ import UIKit
 
 class TableView: UIViewController {
     
-
-            
-var myTableView = UITableView()
+    
+    
+    var myTableView = UITableView()
     var padding: CGFloat = 20
     
-
+    
     var arrowLeftBtn = UIButton()
     var arrowRightBtn = UIButton()
-
+    
     var dayLabel = UILabel()
     var todaysDate = String()
     var changeDate = Int()
@@ -32,53 +32,48 @@ var myTableView = UITableView()
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         view.backgroundColor = .systemBackground
         dateOnScreen()
-        configDayLabel()
+        configDayBtn()
         configArrowLBtn()
         configArrowRBtn()
-        
-      
-       
-  
         configTableView()
         colorsExplain()
-    
-    
         configAddHabitBtn()
-//        configTodayBtn()
-    }
-
-  
-    
-    
-func configTableView() {
-    view.addSubview(myTableView)
-    setTableViewDelegates()
-    myTableView.rowHeight = 50
-    myTableView.register(HabitCell.self, forCellReuseIdentifier: "HabitCell")
-    
-    
-    
-    
-
-    
-    myTableView.translatesAutoresizingMaskIntoConstraints = false
-    
-    
-    NSLayoutConstraint.activate([
-        myTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
         
-        myTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-        myTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-        myTableView.heightAnchor.constraint(equalToConstant: 300)
+    }
     
-    ])
     
-}
+    
+    
+    func configTableView() {
+        view.addSubview(myTableView)
+        setTableViewDelegates()
+        myTableView.rowHeight = 50
+        myTableView.register(HabitCell.self, forCellReuseIdentifier: "HabitCell")
+        
+        
+        
+        
+        
+        
+        myTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        NSLayoutConstraint.activate([
+            myTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            
+            myTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            myTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            myTableView.heightAnchor.constraint(equalToConstant: 300)
+            
+        ])
+        
+    }
     
     func setTableViewDelegates() {
         myTableView.delegate = self
@@ -92,21 +87,21 @@ func configTableView() {
     
     func showRightBtn() {
         arrowRightBtn.isHidden = false
-  
+        
     }
     
     
-  //set day and date to show
+    //set day and date to show
     func dateOnScreen() {
-let today = Date()
-let midnight = Calendar.current.startOfDay(for: today)
-let myDate = Calendar.current.date(byAdding: .day, value: changeDate, to: midnight)!
-
-let weekday = Calendar.current.component(.weekday, from: myDate)
- let month = Calendar.current.component(.month, from: myDate)
- let date = Calendar.current.component(.day, from: myDate)
-let year = Calendar.current.component(.year, from: myDate)
-     
+        let today = Date()
+        let midnight = Calendar.current.startOfDay(for: today)
+        let myDate = Calendar.current.date(byAdding: .day, value: changeDate, to: midnight)!
+        
+        let weekday = Calendar.current.component(.weekday, from: myDate)
+        let month = Calendar.current.component(.month, from: myDate)
+        let date = Calendar.current.component(.day, from: myDate)
+        let year = Calendar.current.component(.year, from: myDate)
+        
         switch changeDate {
         case 0:
             todaysDate = "Today"
@@ -115,10 +110,10 @@ let year = Calendar.current.component(.year, from: myDate)
         case 1:
             todaysDate = "Tomorrow"
         default:
-        
-    todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
+            
+            todaysDate = "\(Calendar.current.weekdaySymbols[weekday-1])  \(date). \(Calendar.current.shortMonthSymbols[month-1]) \(year)"
         }
-}
+    }
     
     func configAddHabitBtn() {
         view.addSubview(addHabitBtn)
@@ -143,18 +138,11 @@ let year = Calendar.current.component(.year, from: myDate)
     }
     
     
-        
-//        todayBtn.addTarget(self, action: #selector(goToday), for: .touchUpInside)
-        
-            
-    @objc func goToday() {
-        
-       
-        changeDate = 0
-        dateOnScreen()
-        configDayLabel()
-        
-    }
+    
+    //        todayBtn.addTarget(self, action: #selector(goToday), for: .touchUpInside)
+    
+    
+    
     
     func configArrowLBtn() {
         view.addSubview(arrowLeftBtn)
@@ -169,20 +157,20 @@ let year = Calendar.current.component(.year, from: myDate)
         
         NSLayoutConstraint.activate([
             arrowLeftBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            arrowLeftBtn.trailingAnchor.constraint(equalTo: dayLabel.leadingAnchor, constant: -10),
+            arrowLeftBtn.trailingAnchor.constraint(equalTo: todayBtn.leadingAnchor, constant: -10),
             arrowLeftBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowLeftBtn.heightAnchor.constraint(equalToConstant: 30)
         ])
-       
+        
     }
     
     
     func configArrowRBtn() {
-            
+        
         
         view.addSubview(arrowRightBtn)
         
-    
+        
         arrowRightBtn.setTitle(">>", for: .normal)
         arrowRightBtn.setTitleColor(.label, for: .normal)
         arrowRightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
@@ -193,67 +181,88 @@ let year = Calendar.current.component(.year, from: myDate)
         
         NSLayoutConstraint.activate([
             arrowRightBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            arrowRightBtn.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 5),
+            arrowRightBtn.leadingAnchor.constraint(equalTo: todayBtn.trailingAnchor, constant: 5),
             arrowRightBtn.widthAnchor.constraint(equalToConstant: 50),
             arrowRightBtn.heightAnchor.constraint(equalToConstant: 30)
         ])
-       
+        
     }
     
     
     @objc func leftBtnTapped() {
-    changeDate = changeDate - 1
+        changeDate = changeDate - 1
         if changeDate >= 1 {
             hideRightBtn()
         } else {
             showRightBtn()
-           
+            
         }
-    dateOnScreen()
-      
-        configDayLabel()
-    }
-
-
-    @objc func rightBtnTapped() {
-    changeDate = changeDate + 1
+        dateOnScreen()
         
-        if changeDate >= 1 {
-            hideRightBtn()
-        } else {
-            showRightBtn()
-           
-        }
-        
-    dateOnScreen()
-        
-        configDayLabel()
+        configDayBtn()
     }
     
-    func configDayLabel() {
-        view.addSubview(dayLabel)
+    
+    @objc func rightBtnTapped() {
+        changeDate = changeDate + 1
         
-        dayLabel.text = "\(todaysDate)"
-        dayLabel.textColor = .label
-        dayLabel.textAlignment = .center
-        dayLabel.font = UIFont.systemFont(ofSize: 18)
-        dayLabel.translatesAutoresizingMaskIntoConstraints = false
+        if changeDate >= 1 {
+            hideRightBtn()
+        } else {
+            showRightBtn()
+            
+        }
+        
+        dateOnScreen()
+        
+        configDayBtn()
+    }
+    
+    
+    
+    
+    @objc func goToday() {
+        
+        
+        changeDate = 0
+        dateOnScreen()
+        configDayBtn()
+        
+    }
+    
+    func configDayBtn() {
+        view.addSubview(todayBtn)
+        
+        
+        todayBtn.setTitle("\(todaysDate)", for: .normal)
+        //
+        todayBtn.setTitleColor(.label, for: .normal)
+        
+        //        todayBtn.textAlignment = .center
+        //        todayBtn.font = UIFont.systemFont(ofSize: 18)
+        
+        todayBtn.addTarget(self, action: #selector(goToday), for: .touchUpInside)
+        
+        todayBtn.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dayLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dayLabel.widthAnchor.constraint(equalToConstant: 220),
-            dayLabel.heightAnchor.constraint(equalToConstant: 30)
+            todayBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            todayBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            todayBtn.widthAnchor.constraint(equalToConstant: 220),
+            todayBtn.heightAnchor.constraint(equalToConstant: 30)
         ])
         
     }
+    
+    
+    
     
     func colorsExplain() {
         view.addSubview(colorsExplainText)
         colorsExplainText.text = "🟢 Completed     🟠 Not relevant today     🔴 Uncompleted"
         colorsExplainText.textColor = .label
         colorsExplainText.font = UIFont.systemFont(ofSize: 12)
-    
+        
         
         colorsExplainText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -263,7 +272,7 @@ let year = Calendar.current.component(.year, from: myDate)
             colorsExplainText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             colorsExplainText.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
-                                
+        
     }
     
     
@@ -298,11 +307,11 @@ let year = Calendar.current.component(.year, from: myDate)
                 if userInput == "" {
                     self.present(dialogMessage, animated: true, completion: nil)
                 } else {
-                self.yourHabits.append(userInput)
-                print(self.yourHabits)
+                    self.yourHabits.append(userInput)
+                    print(self.yourHabits)
                     self.myTableView.reloadData()
                 }}
-
+            
         }
         )
         
@@ -329,10 +338,10 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell") as! HabitCell
-//        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
-//        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
+        //        let cell = myTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
+        //        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
         cell.habitLabel.text = "\(yourHabits[indexPath.row])"
-       
+        
         return cell
         
     }
@@ -352,26 +361,26 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-     
-            let completeGreen = completeAction(at: indexPath)
+        
+        let completeGreen = completeAction(at: indexPath)
         let notTodayOrange = notTodayAction(at: indexPath)
         let notCompleteRed = notCompleteAction(at: indexPath)
-            return UISwipeActionsConfiguration(actions: [completeGreen, notTodayOrange, notCompleteRed])
-            
-        }
+        return UISwipeActionsConfiguration(actions: [completeGreen, notTodayOrange, notCompleteRed])
         
-        func completeAction(at indexPath: IndexPath) -> UIContextualAction {
-            let actionGreen = UIContextualAction(style: .normal, title: "Complete") { (action, view, completition) in
-                self.habitStatus = "green"
-                
-                completition(true)
-            }
-            actionGreen.title = "🟢"
-            actionGreen.backgroundColor = .white
+    }
+    
+    func completeAction(at indexPath: IndexPath) -> UIContextualAction {
+        let actionGreen = UIContextualAction(style: .normal, title: "Complete") { (action, view, completition) in
+            self.habitStatus = "green"
             
-           
-        return actionGreen
+            completition(true)
         }
+        actionGreen.title = "🟢"
+        actionGreen.backgroundColor = .white
+        
+        
+        return actionGreen
+    }
     
     func notTodayAction(at indexPath: IndexPath) -> UIContextualAction {
         let actionOrange = UIContextualAction(style: .normal, title: "Not relevant Today") { (action, view, completition) in
@@ -381,8 +390,8 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         }
         actionOrange.title = "🟠"
         actionOrange.backgroundColor = .systemGray5
-       
-    return actionOrange
+        
+        return actionOrange
     }
     
     func notCompleteAction(at indexPath: IndexPath) -> UIContextualAction {
@@ -393,12 +402,12 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         }
         actionRed.title = "🔴"
         actionRed.backgroundColor = .white
-       
-    return actionRed
+        
+        return actionRed
     }
     
     
-    }
-    
-    
+}
+
+
 

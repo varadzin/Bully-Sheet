@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09D1396525BDB763009E49E3 /* Habits+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1396325BDB763009E49E3 /* Habits+CoreDataClass.swift */; };
-		09D1396625BDB763009E49E3 /* Habits+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1396425BDB763009E49E3 /* Habits+CoreDataProperties.swift */; };
+		09DD8BB925BDCB7800E7573D /* Habits+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD8BB725BDCB7800E7573D /* Habits+CoreDataClass.swift */; };
+		09DD8BBA25BDCB7800E7573D /* Habits+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD8BB825BDCB7800E7573D /* Habits+CoreDataProperties.swift */; };
 		C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65DA8202585456000B3BBDB /* SaveCoreData.swift */; };
 		C66329682599CC7600EAD83C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66329672599CC7600EAD83C /* WebView.swift */; };
 		C663296C25A1E64800EAD83C /* WebView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663296B25A1E64800EAD83C /* WebView2.swift */; };
@@ -29,8 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09D1396325BDB763009E49E3 /* Habits+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habits+CoreDataClass.swift"; sourceTree = "<group>"; };
-		09D1396425BDB763009E49E3 /* Habits+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habits+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09DD8BB725BDCB7800E7573D /* Habits+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habits+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09DD8BB825BDCB7800E7573D /* Habits+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habits+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C65DA8202585456000B3BBDB /* SaveCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCoreData.swift; sourceTree = "<group>"; };
 		C66329672599CC7600EAD83C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		C663296B25A1E64800EAD83C /* WebView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView2.swift; sourceTree = "<group>"; };
@@ -89,6 +89,7 @@
 				C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */,
 				C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */,
 				C6AA1A24257ACB98006CCF44 /* ViewController.swift */,
+				C663296E25A1E88A00EAD83C /* WebView3.swift */,
 				C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */,
 				C6AA1A2E257ACB9D006CCF44 /* LaunchScreen.storyboard */,
 				C6AA1A31257ACB9D006CCF44 /* Info.plist */,
@@ -108,7 +109,6 @@
 				C66329672599CC7600EAD83C /* WebView.swift */,
 				C663297125A2036D00EAD83C /* TableView.swift */,
 				C663296B25A1E64800EAD83C /* WebView2.swift */,
-				C663296E25A1E88A00EAD83C /* WebView3.swift */,
 				C663297425AB3D9600EAD83C /* HabitCell.swift */,
 			);
 			path = View;
@@ -117,8 +117,8 @@
 		C6AA1A44257AD5EE006CCF44 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				09D1396325BDB763009E49E3 /* Habits+CoreDataClass.swift */,
-				09D1396425BDB763009E49E3 /* Habits+CoreDataProperties.swift */,
+				09DD8BB725BDCB7800E7573D /* Habits+CoreDataClass.swift */,
+				09DD8BB825BDCB7800E7573D /* Habits+CoreDataProperties.swift */,
 				C65DA8202585456000B3BBDB /* SaveCoreData.swift */,
 			);
 			path = Model;
@@ -211,7 +211,7 @@
 				C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */,
 				C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */,
 				C663297225A2036D00EAD83C /* TableView.swift in Sources */,
-				09D1396525BDB763009E49E3 /* Habits+CoreDataClass.swift in Sources */,
+				09DD8BB925BDCB7800E7573D /* Habits+CoreDataClass.swift in Sources */,
 				C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */,
 				C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */,
 				C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */,
@@ -222,7 +222,7 @@
 				C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */,
 				C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */,
 				C6AA1A23257ACB98006CCF44 /* SceneDelegate.swift in Sources */,
-				09D1396625BDB763009E49E3 /* Habits+CoreDataProperties.swift in Sources */,
+				09DD8BBA25BDCB7800E7573D /* Habits+CoreDataProperties.swift in Sources */,
 				C66329682599CC7600EAD83C /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ class TableView: UIViewController {
     var userInput = String()
     var addHabitBtn = UIButton()
     var todayBtn = UIButton()
-    var yourHabits : [String] = []
+    var yourHabits : [String] = ["", "", "", "", ""]
     var messageInWindow = String()
     var habitStatus = String()
     var colorsExplainText = UITextView()
@@ -38,6 +38,8 @@ class TableView: UIViewController {
     var readHabit5 = String()
     
     var readDate = String()
+    var controlArray : [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,11 @@ class TableView: UIViewController {
     }
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+        showData()
+    }
     
     func configTableView() {
         view.addSubview(myTableView)
@@ -205,7 +211,9 @@ class TableView: UIViewController {
             
         }
         dateOnScreen()
-        
+ 
+        loadData()
+             showData()
         configDayBtn()
     }
     
@@ -221,7 +229,9 @@ class TableView: UIViewController {
         }
         
         dateOnScreen()
-        
+//
+        loadData()
+             showData()
         configDayBtn()
     }
     
@@ -314,27 +324,49 @@ class TableView: UIViewController {
                 if userInput == "" {
                     self.present(dialogMessage, animated: true, completion: nil)
                 } else {
-                    self.yourHabits.append(userInput)
+                    if self.yourHabits[0] == "" {
+                        self.yourHabits[0] = userInput
+                    } else {
+                        if self.yourHabits[1] == "" {
+                            self.yourHabits[1] = userInput
+                    } else {
+                        if self.yourHabits[2] == "" {
+                            self.yourHabits[2] = userInput
+                        } else {
+                            if self.yourHabits[3] == "" {
+                                self.yourHabits[3] = userInput
+                            } else {
+                                if self.yourHabits[4] == "" {
+                                    self.yourHabits[4] = userInput
+                            }
+                            }
+                        }
+                    }
+                    }
+            
+            
+//                    self.yourHabits.append(userInput)
                     print(self.yourHabits)
+                    self.saveData()
                     self.myTableView.reloadData()
                 }}
-            
+            self.saveData()
         }
         )
         
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in
             print("Cancel button tapped")
         }
-        
+        saveData()
         dialogMessage.addAction(cancel)
         dialogMessage.addAction(create)
         
         dialogMessage.addTextField { (textField) -> Void in
             self.habitTextField = textField
         }
-        
+        saveData()
         self.present(dialogMessage, animated: true, completion: nil)
-        
+    
     }
 }
 
@@ -353,7 +385,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         //        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
         cell.habitLabel.text = "\(yourHabits[indexPath.row])"
         cell.habitLabel.minimumScaleFactor = 12
-        
+        saveData()
         return cell
         
     }
@@ -366,9 +398,10 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             tableView.beginUpdates()
             yourHabits.remove(at: indexPath.row)
+         
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-            
+            saveData()
         }
     }
     
@@ -444,10 +477,18 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
 //        let habitToSave5 = habit5
 //        let novyDatum = todaysDate
         
-        newHabit.setValue(yourHabits[0], forKey: "first_habit")
-        newHabit.setValue(yourHabits[1], forKey: "second_habit")
-        newHabit.setValue(yourHabits[2], forKey: "third_habit")
-        newHabit.setValue(yourHabits[3], forKey: "fourth_habit")
+//
+//        if yourHabits[0] != "" { newHabit.setValue(yourHabits[0], forKey: "first_habit")}
+//        if yourHabits[1] != "" { newHabit.setValue(yourHabits[1], forKey: "second_habit")}
+//        if yourHabits[2] != "" {  newHabit.setValue(yourHabits[2], forKey: "third_habit")}
+//        if yourHabits[3] != "" {  newHabit.setValue(yourHabits[3], forKey: "fourth_habit")}
+//        if yourHabits[4] != "" {  newHabit.setValue(yourHabits[4], forKey: "fifth_habit")}
+        
+        
+      newHabit.setValue(yourHabits[0], forKey: "first_habit")
+      newHabit.setValue(yourHabits[1], forKey: "second_habit")
+       newHabit.setValue(yourHabits[2], forKey: "third_habit")
+         newHabit.setValue(yourHabits[3], forKey: "fourth_habit")
         newHabit.setValue(yourHabits[4], forKey: "fifth_habit")
         newHabit.setValue(todaysDate, forKey: "datum")
         
@@ -480,16 +521,36 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
             for r in results {
                 if let result = r as? NSManagedObject {
                     
-                    print("Results: \(results)")
+//                    print("Results: \(results)")
                     
-                    
-                    readHabit1 = result.value(forKey: "first_habit") as! String
+                    if result.value(forKey: "first_habit") == nil { print("no value1")} else {
+                        yourHabits[0] = "\(result.value(forKey: "first_habit") as! String)"
+                        controlArray.append(result.value(forKey: "first_habit") as! String)
+                    }
 
-                    readHabit2 = result.value(forKey: "second_habit") as! String
-                    readHabit3 = result.value(forKey: "third_habit") as! String
-                    readHabit4 = result.value(forKey: "fourth_habit") as! String
-                    readHabit5 = result.value(forKey: "fifth_habit") as! String
+                    if result.value(forKey: "second_habit") == nil { print("no value2")} else {
+                        yourHabits[1] = "\(result.value(forKey: "second_habit") as! String)"
+                        controlArray.append(result.value(forKey: "second_habit") as! String)
+                    }
+                    
+                    if result.value(forKey: "third_habit") == nil { print("no value3")} else {
+                        readHabit3 = result.value(forKey: "third_habit") as! String
+                        controlArray.append(result.value(forKey: "third_habit") as! String)
+                    }
+                    
+                        if result.value(forKey: "fourth_habit") == nil { print("no value4")} else {
+                            readHabit4 = result.value(forKey: "fourth_habit") as! String
+                            controlArray.append(result.value(forKey: "fourth_habit") as! String)
+                        }
+                    
+                            if result.value(forKey: "fifth_habit") == nil { print("no value5")} else {
+                                readHabit5 = result.value(forKey: "fifth_habit") as! String
+                                controlArray.append(result.value(forKey: "fifth_habit") as! String)
+                            }
+                    
+                    
                     readDate = result.value(forKey: "datum") as! String
+                 
                 }
             }
         } catch {
@@ -501,12 +562,18 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func showData() {
-//        habitLabel1.text = readHabit1
-//        habitLabel2.text = readHabit2
-//        habitLabel3.text = readHabit3
-//        habitLabel4.text = readHabit4
-//        habitLabel5.text = readHabit5
-//        print("novy nacitany datum je: \(readDate)")
+
+        print("controlArray je: \(controlArray)")
+        
+        
+//            yourHabits[0] = readHabit1
+//
+//
+//        yourHabits[1] = readHabit2
+//        yourHabits[2] = readHabit3
+//        yourHabits[3] = readHabit4
+//        yourHabits[4] = readHabit5
+        print("novy nacitany datum je: \(readDate)")
         
     }
     

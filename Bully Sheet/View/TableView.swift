@@ -350,21 +350,21 @@ class TableView: UIViewController {
                     self.saveData()
                     self.myTableView.reloadData()
                 }}
-            self.saveData()
+         
         }
         )
         
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) -> Void in
             print("Cancel button tapped")
         }
-        saveData()
+       
         dialogMessage.addAction(cancel)
         dialogMessage.addAction(create)
         
         dialogMessage.addTextField { (textField) -> Void in
             self.habitTextField = textField
         }
-        saveData()
+      
         self.present(dialogMessage, animated: true, completion: nil)
     
     }
@@ -385,7 +385,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
         //        cell.textLabel?.text = "\(yourHabits[indexPath.row])"
         cell.habitLabel.text = "\(yourHabits[indexPath.row])"
         cell.habitLabel.minimumScaleFactor = 12
-        saveData()
+       
         return cell
         
     }
@@ -401,7 +401,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
          
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
-            saveData()
+            
         }
     }
     

@@ -101,21 +101,7 @@ class TableView: UIViewController {
         arrowRightBtn.isHidden = false
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // testrerghrthtdjrfj
-    
-    
-    
-    
-    
+   
     //set day and date to show
     func dateOnScreen() {
         let today = Date()

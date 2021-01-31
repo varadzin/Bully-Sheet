@@ -16,17 +16,10 @@ extension Habits {
         return NSFetchRequest<Habits>(entityName: "Habits")
     }
 
-    @NSManaged public var datum: String?
-    @NSManaged public var fifth_habit: String?
-    @NSManaged public var first_habit: String?
-    @NSManaged public var fourth_habit: String?
-    @NSManaged public var second_habit: String?
-    @NSManaged public var state1: String?
-    @NSManaged public var state2: String?
-    @NSManaged public var state3: String?
-    @NSManaged public var state4: String?
-    @NSManaged public var state5: String?
-    @NSManaged public var third_habit: String?
+    @NSManaged public var date: Date?
+    @NSManaged public var name: String?
+    @NSManaged public var color: String?
+ 
 
 }
 

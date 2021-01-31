@@ -89,7 +89,6 @@
 				C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */,
 				C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */,
 				C6AA1A24257ACB98006CCF44 /* ViewController.swift */,
-				C663296E25A1E88A00EAD83C /* WebView3.swift */,
 				C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */,
 				C6AA1A2E257ACB9D006CCF44 /* LaunchScreen.storyboard */,
 				C6AA1A31257ACB9D006CCF44 /* Info.plist */,
@@ -109,6 +108,7 @@
 				C66329672599CC7600EAD83C /* WebView.swift */,
 				C663297125A2036D00EAD83C /* TableView.swift */,
 				C663296B25A1E64800EAD83C /* WebView2.swift */,
+				C663296E25A1E88A00EAD83C /* WebView3.swift */,
 				C663297425AB3D9600EAD83C /* HabitCell.swift */,
 			);
 			path = View;

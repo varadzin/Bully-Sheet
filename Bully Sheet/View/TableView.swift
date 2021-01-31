@@ -131,9 +131,7 @@ class TableView: UIViewController {
         
         addHabitBtn.addTarget(self, action: #selector(addHabit), for: .touchUpInside)
 //
-//        addHabitBtn.layer.borderWidth = 0.2
-//        addHabitBtn.layer.borderColor = UIColor.systemRed.cgColor
-//        addHabitBtn.layer.cornerRadius = 10
+
         addHabitBtn.setTitle("+", for: .normal)
         addHabitBtn.titleLabel?.font = UIFont.systemFont(ofSize: 60)
 //        addHabitBtn.titleLabel?.textAlignment = .center
@@ -564,14 +562,7 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
 
         print("controlArray je: \(controlArray)")
         
-        
-//            yourHabits[0] = readHabit1
-//
-//
-//        yourHabits[1] = readHabit2
-//        yourHabits[2] = readHabit3
-//        yourHabits[3] = readHabit4
-//        yourHabits[4] = readHabit5
+
         print("novy nacitany datum je: \(readDate)")
         
     }

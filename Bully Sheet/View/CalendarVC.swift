@@ -6,30 +6,26 @@
 //
 
 import UIKit
+import FSCalendar
 
-class CalendarVC: UIViewController {
+class CalendarVC: UIViewController, FSCalendarDelegate {
     
-    var calendarImg = UIImageView()
+var calendar = FSCalendar()
         
     override func viewDidLoad() {
         super.viewDidLoad()
                 view.backgroundColor = .systemBackground
-    configCalendarImg()
+        calendar.delegate = self
     }
     
-    
-    func configCalendarImg() {
-        view.addSubview(calendarImg)
-        calendarImg.image = UIImage(named: "calendar")
-        
-        calendarImg.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            calendarImg.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            calendarImg.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            calendarImg.widthAnchor.constraint(equalToConstant: 262),
-            calendarImg.heightAnchor.constraint(equalToConstant: 284)
-        ])
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        calendar.frame = CGRect(x: 0,
+                                y: 100,
+                                width: view.frame.size.width,
+                                height: view.frame.size.width)
+        view.addSubview(calendar)
     }
     
+
 }

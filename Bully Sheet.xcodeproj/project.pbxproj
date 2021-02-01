@@ -26,11 +26,14 @@
 		C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A3A257AD54D006CCF44 /* StartVC.swift */; };
 		C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A3D257AD55B006CCF44 /* MainVC.swift */; };
 		C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */; };
+		D3A40A38FAD1686636FD09EF /* Pods_Bully_Sheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A52D8FA31251348E482D89 /* Pods_Bully_Sheet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09DD8BB725BDCB7800E7573D /* Habits+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habits+CoreDataClass.swift"; sourceTree = "<group>"; };
 		09DD8BB825BDCB7800E7573D /* Habits+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habits+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		68A52D8FA31251348E482D89 /* Pods_Bully_Sheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bully_Sheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7896ED116D12D70FC75CAC06 /* Pods-Bully Sheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bully Sheet.debug.xcconfig"; path = "Target Support Files/Pods-Bully Sheet/Pods-Bully Sheet.debug.xcconfig"; sourceTree = "<group>"; };
 		C65DA8202585456000B3BBDB /* SaveCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCoreData.swift; sourceTree = "<group>"; };
 		C66329672599CC7600EAD83C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		C663296B25A1E64800EAD83C /* WebView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView2.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		C6AA1A3A257AD54D006CCF44 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		C6AA1A3D257AD55B006CCF44 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		DE33C511D0ED3ADCE53B41F4 /* Pods-Bully Sheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bully Sheet.release.xcconfig"; path = "Target Support Files/Pods-Bully Sheet/Pods-Bully Sheet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +61,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A40A38FAD1686636FD09EF /* Pods_Bully_Sheet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8D72D7894063A6E7F681081 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68A52D8FA31251348E482D89 /* Pods_Bully_Sheet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C6AA1A14257ACB98006CCF44 = {
 			isa = PBXGroup;
 			children = (
 				C6AA1A1F257ACB98006CCF44 /* Bully Sheet */,
 				C6AA1A1E257ACB98006CCF44 /* Products */,
+				D74C4ADFD38FAB339098E3A8 /* Pods */,
+				B8D72D7894063A6E7F681081 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +153,16 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		D74C4ADFD38FAB339098E3A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7896ED116D12D70FC75CAC06 /* Pods-Bully Sheet.debug.xcconfig */,
+				DE33C511D0ED3ADCE53B41F4 /* Pods-Bully Sheet.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6AA1A34257ACB9D006CCF44 /* Build configuration list for PBXNativeTarget "Bully Sheet" */;
 			buildPhases = (
+				9A6A685FB1DCC60C7D73B391 /* [CP] Check Pods Manifest.lock */,
 				C6AA1A19257ACB98006CCF44 /* Sources */,
 				C6AA1A1A257ACB98006CCF44 /* Frameworks */,
 				C6AA1A1B257ACB98006CCF44 /* Resources */,
+				AD78540C14FE41A67953E7E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,6 +228,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9A6A685FB1DCC60C7D73B391 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bully Sheet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD78540C14FE41A67953E7E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bully Sheet/Pods-Bully Sheet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bully Sheet/Pods-Bully Sheet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bully Sheet/Pods-Bully Sheet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6AA1A19257ACB98006CCF44 /* Sources */ = {
@@ -359,6 +428,7 @@
 		};
 		C6AA1A35257ACB9D006CCF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7896ED116D12D70FC75CAC06 /* Pods-Bully Sheet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -378,6 +448,7 @@
 		};
 		C6AA1A36257ACB9D006CCF44 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE33C511D0ED3ADCE53B41F4 /* Pods-Bully Sheet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

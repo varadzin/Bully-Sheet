@@ -83,7 +83,8 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model  = models[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = model.name
+//        let color = models[indexPath.row]"🔴"
+        cell.textLabel?.text = "\(model.color ?? "🔴")   \(model.name ?? "")"
         return cell
     }
     
@@ -94,9 +95,26 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        sheet.addAction(UIAlertAction(title: "🟢  Habit is completed", style: .default, handler: nil))
-        sheet.addAction(UIAlertAction(title: "🟠  Not relevant today", style: .default, handler: nil))
-        sheet.addAction(UIAlertAction(title: "🔴  Habit uncompleted ", style: .default, handler: nil))
+        
+        //here you change color of habit in action sheet and save it in core data
+        sheet.addAction(UIAlertAction(title: "🟢  Habit is completed", style: .default, handler: { [weak self] _ in
+                       let newColor = "🟢"
+                 self?.updateColor(item: item, newColor: newColor)
+        }))
+        
+        
+        
+        sheet.addAction(UIAlertAction(title: "🟠  Not relevant today", style: .default, handler: { [weak self] _ in
+                        let newColor = "🟠"
+            self?.updateColor(item: item, newColor: newColor)
+  }))
+        
+        
+        
+        sheet.addAction(UIAlertAction(title: "🔴  Habit uncompleted ", style: .default, handler: { [weak self] _ in
+                        let newColor = "🔴"
+            self?.updateColor(item: item, newColor: newColor)
+  }))
         
         
         sheet.addAction(UIAlertAction(title: "Edit habit", style: .default, handler: { _ in
@@ -383,6 +401,7 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let newItem = Habits(context: context)
         newItem.name = name
         newItem.date = Date()
+        newItem.color = "🔴"
         
         do {
             try context.save()
@@ -419,5 +438,15 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func updateColor(item: Habits, newColor: String) {
+        item.color = newColor
+        do {
+            try context.save()
+            getAllItems()
+        }
+        catch {
+            print("Error by updating color")
+        }
+    }
 }
     

@@ -16,6 +16,9 @@ var calendar = FSCalendar()
         super.viewDidLoad()
                 view.backgroundColor = .systemBackground
         calendar.delegate = self
+        calendar.appearance.titleDefaultColor = UIColor.label //color in Dark mode
+        self.calendar.firstWeekday = 2 //first day of Week is Monday
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -25,7 +28,12 @@ var calendar = FSCalendar()
                                 width: view.frame.size.width,
                                 height: view.frame.size.width)
         view.addSubview(calendar)
+        
+        
     }
     
 
 }
+
+
+

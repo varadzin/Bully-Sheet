@@ -22,20 +22,15 @@ class HabitCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func configHabitLbl() {
         habitLabel.numberOfLines = 1
         habitLabel.adjustsFontSizeToFitWidth = true
-
-        
         habitLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             habitLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             habitLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             habitLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
-            
         ])
     }
-    
 }

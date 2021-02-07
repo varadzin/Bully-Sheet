@@ -18,8 +18,7 @@ class WebView3: UIViewController, WKUIDelegate {
         return webView
     }()
     
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         loadWebView()
@@ -37,7 +36,7 @@ class WebView3: UIViewController, WKUIDelegate {
     func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(webView)
-        
+     
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

@@ -15,8 +15,7 @@ class StartVC: UIViewController {
     var firstChapBtn = UIButton()
     var howBtn = UIButton()
     var buyBtn = UIButton()
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -35,8 +34,7 @@ class StartVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    
-    
+        
     // Start screen setup - buttons and image
     func configBookImgBtn() {
         view.addSubview(bookImageBtn)

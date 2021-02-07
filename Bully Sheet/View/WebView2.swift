@@ -18,10 +18,8 @@ class WebView2: UIViewController, WKUIDelegate {
         return webView
     }()
     
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.navigationBar.isHidden = false
         loadWebView()
         setupUI()

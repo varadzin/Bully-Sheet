@@ -27,15 +27,7 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var colorsExplainText = UITextView()
     var readDate = String()
     
-    
-    
-    let tableView: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return table
         
-    }()
-    
     private var models = [Habits]()
     
     override func viewDidLoad() {
@@ -56,6 +48,12 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - TableView
     
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
@@ -73,22 +71,6 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let item = models[indexPath.row]
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        func configTableView() {
-            view.addSubview(tableView)
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.rowHeight = 50
-            tableView.register(HabitCell.self, forCellReuseIdentifier: "cell")
-            
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-                tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                tableView.heightAnchor.constraint(equalToConstant: 300)
-            ])
-        }
         
         //change color of habit in action sheet and save it in core data
         sheet.addAction(UIAlertAction(title: "🟢  Habit is completed", style: .default, handler: { [weak self] _ in
@@ -106,22 +88,6 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self?.updateColor(item: item, newColor: newColor)
         }))
         
-        //MARK: - Image under TableView
-        
-        func colorsExplain() {
-            view.addSubview(colorsExplainText)
-            colorsExplainText.text = "🟢 Completed     🟠 Not relevant today     🔴 Uncompleted"
-            colorsExplainText.textColor = .label
-            colorsExplainText.font = UIFont.systemFont(ofSize: 12)
-            colorsExplainText.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                colorsExplainText.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 30),
-                colorsExplainText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-                colorsExplainText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-                colorsExplainText.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
-            ])
-        }
         
         //MARK: - Action sheet with Edit, Delete, Cancel Button
         sheet.addAction(UIAlertAction(title: "Edit habit", style: .default, handler: { _ in
@@ -147,6 +113,39 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         present(sheet, animated: true)
     }
     
+    func configTableView() {
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 50
+        tableView.register(HabitCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.heightAnchor.constraint(equalToConstant: 300)
+        ])
+    }
+    
+    //MARK: - Image under TableView
+    
+    func colorsExplain() {
+        view.addSubview(colorsExplainText)
+        colorsExplainText.text = "🟢 Completed     🟠 Not relevant today     🔴 Uncompleted"
+        colorsExplainText.textColor = .label
+        colorsExplainText.font = UIFont.systemFont(ofSize: 12)
+        colorsExplainText.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            colorsExplainText.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 30),
+            colorsExplainText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            colorsExplainText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            colorsExplainText.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+        ])
+    }
     
     //MARK: - Set day and date to show on screen
     func dateOnScreen() {

@@ -3,7 +3,7 @@
 //  Bully Sheet
 //
 //  Created by Frantisek Varadzin on 28/12/2020.
-//
+//  Youtube video about the book
 
 import WebKit
 import UIKit
@@ -15,7 +15,7 @@ class WebView2: UIViewController, WKUIDelegate {
         let webView = WKWebView(frame: .zero,configuration: webConfiguration)
         webView.uiDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
-     return webView
+        return webView
     }()
     
     
@@ -23,20 +23,18 @@ class WebView2: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = false
+        loadWebView()
         setupUI()
         backBarButton()
-        
-        
-        
-        
+    }
+    
+    
+    func loadWebView() {
         let myUrl = URL(string: "https://www.youtube.com/watch?v=Km_kGQyIjUw")
         let myRequest = URLRequest(url: myUrl!)
         webView.load(myRequest)
-            
-        
     }
     
-   
     
     func setupUI() {
         view.backgroundColor = .systemBackground
@@ -48,7 +46,6 @@ class WebView2: UIViewController, WKUIDelegate {
             webView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
     }
     
     func backBarButton() {
@@ -59,6 +56,5 @@ class WebView2: UIViewController, WKUIDelegate {
     
     @objc func goBack() {
         self.navigationController?.popViewController(animated: true)
-        
     }
 }

@@ -3,7 +3,7 @@
 //  Bully Sheet
 //
 //  Created by Frantisek Varadzin on 28/12/2020.
-//
+//  First Chapter of Book  - End of procrastination
 
 import WebKit
 import UIKit
@@ -15,28 +15,24 @@ class WebView: UIViewController, WKUIDelegate {
         let webView = WKWebView(frame: .zero,configuration: webConfiguration)
         webView.uiDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
-     return webView
+        return webView
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.navigationBar.isHidden = false
+        loadWebView()
         setupUI()
         backBarButton()
-        
-        
-        
-        
+    }
+    
+    
+    func loadWebView() {
         let myUrl = URL(string: "https://procrastination.com/assets/frontend/img/The%20End%20of%20Procrastination%20-%20free%20chapter.pdf")
         let myRequest = URLRequest(url: myUrl!)
         webView.load(myRequest)
-            
-        
     }
-    
-   
     
     func setupUI() {
         view.backgroundColor = .systemBackground

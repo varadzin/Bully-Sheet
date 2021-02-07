@@ -10,15 +10,14 @@ import FSCalendar
 
 class CalendarVC: UIViewController, FSCalendarDelegate {
     
-var calendar = FSCalendar()
-        
+    var calendar = FSCalendar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
         calendar.delegate = self
         calendar.appearance.titleDefaultColor = UIColor.label //color in Dark mode
         self.calendar.firstWeekday = 2 //first day of Week is Monday
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,7 +31,7 @@ var calendar = FSCalendar()
         
     }
     
-
+    
 }
 
 

@@ -32,10 +32,12 @@ class StartVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         navigationController?.navigationBar.isHidden = true
     }
     
+    
+    
+    // Start screen setup - buttons and image
     func configBookImgBtn() {
         view.addSubview(bookImageBtn)
         let btnImg = UIImage(named: "book")
@@ -129,24 +131,18 @@ class StartVC: UIViewController {
     }
     
     @objc func bullyBtnTapped() {
-                   navigationController?.pushViewController(TableView(), animated: true)
-            }
-        
+        navigationController?.pushViewController(TableView(), animated: true)
+    }
+    
     @objc func firstChapBtnTapped() {
-        
         navigationController?.pushViewController(WebView(), animated: true)
     }
     
-    
     @objc func howBtnTapped() {
-        
         navigationController?.pushViewController(WebView2(), animated: true)
     }
- 
     
     @objc func buyBtnTapped() {
-        
         navigationController?.pushViewController(WebView3(), animated: true)
     }
-    
 }

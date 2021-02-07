@@ -27,23 +27,16 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var dayLabel = UILabel()
     var todaysDate = String()
     var changeDate = Int()
-//    var habitTextField = UITextField()
-//    var userInput = String()
+
     var addHabitBtn = UIButton()
     var todayBtn = UIButton()
-//    var yourHabits : [String] = []
-//    var messageInWindow = String()
+
     var habitStatus = String()
     var colorsExplainText = UITextView()
-//
-//    var readHabit1 = String()
-//    var readHabit2 = String()
-//    var readHabit3 = String()
-//    var readHabit4 = String()
-//    var readHabit5 = String()
+
     
     var readDate = String()
-//    var controlArray : [String] = []
+
     
     
     let tableView: UITableView = {

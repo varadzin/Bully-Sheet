@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,15 +16,12 @@
 		C663297225A2036D00EAD83C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663297125A2036D00EAD83C /* TableView.swift */; };
 		C663297525AB3D9600EAD83C /* HabitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663297425AB3D9600EAD83C /* HabitCell.swift */; };
 		C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */; };
-		C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67AAA34257BFA3A00694B8A /* HabitLabel.swift */; };
 		C6AA1A21257ACB98006CCF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */; };
 		C6AA1A23257ACB98006CCF44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */; };
-		C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A24257ACB98006CCF44 /* ViewController.swift */; };
 		C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A29257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld */; };
 		C6AA1A2D257ACB9D006CCF44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */; };
 		C6AA1A30257ACB9D006CCF44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AA1A2E257ACB9D006CCF44 /* LaunchScreen.storyboard */; };
 		C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A3A257AD54D006CCF44 /* StartVC.swift */; };
-		C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A3D257AD55B006CCF44 /* MainVC.swift */; };
 		C6AA1A41257AD56C006CCF44 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */; };
 		D3A40A38FAD1686636FD09EF /* Pods_Bully_Sheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A52D8FA31251348E482D89 /* Pods_Bully_Sheet.framework */; };
 /* End PBXBuildFile section */
@@ -41,17 +38,14 @@
 		C663297125A2036D00EAD83C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C663297425AB3D9600EAD83C /* HabitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		C67AAA34257BFA3A00694B8A /* HabitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLabel.swift; sourceTree = "<group>"; };
 		C6AA1A1D257ACB98006CCF44 /* Bully Sheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bully Sheet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C6AA1A24257ACB98006CCF44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6AA1A2A257ACB98006CCF44 /* Bully_Sheet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bully_Sheet.xcdatamodel; sourceTree = "<group>"; };
 		C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6AA1A2F257ACB9D006CCF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6AA1A31257ACB9D006CCF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6AA1A3A257AD54D006CCF44 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
-		C6AA1A3D257AD55B006CCF44 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		DE33C511D0ED3ADCE53B41F4 /* Pods-Bully Sheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bully Sheet.release.xcconfig"; path = "Target Support Files/Pods-Bully Sheet/Pods-Bully Sheet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,13 +95,9 @@
 				C6AA1A45257AD5F6006CCF44 /* Controller */,
 				C6AA1A44257AD5EE006CCF44 /* Model */,
 				C6AA1A43257AD5C7006CCF44 /* View */,
-				C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */,
-				C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */,
-				C6AA1A24257ACB98006CCF44 /* ViewController.swift */,
 				C6AA1A2C257ACB9D006CCF44 /* Assets.xcassets */,
 				C6AA1A2E257ACB9D006CCF44 /* LaunchScreen.storyboard */,
 				C6AA1A31257ACB9D006CCF44 /* Info.plist */,
-				C6AA1A29257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld */,
 			);
 			path = "Bully Sheet";
 			sourceTree = "<group>";
@@ -116,10 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				C6AA1A40257AD56C006CCF44 /* CalendarVC.swift */,
-				C6AA1A3D257AD55B006CCF44 /* MainVC.swift */,
 				C6AA1A3A257AD54D006CCF44 /* StartVC.swift */,
 				C67AAA2E257AEF3200694B8A /* CustomTabBar.swift */,
-				C67AAA34257BFA3A00694B8A /* HabitLabel.swift */,
 				C66329672599CC7600EAD83C /* WebView.swift */,
 				C663297125A2036D00EAD83C /* TableView.swift */,
 				C663296B25A1E64800EAD83C /* WebView2.swift */,
@@ -135,6 +123,7 @@
 				09DD8BB725BDCB7800E7573D /* Habits+CoreDataClass.swift */,
 				09DD8BB825BDCB7800E7573D /* Habits+CoreDataProperties.swift */,
 				C65DA8202585456000B3BBDB /* SaveCoreData.swift */,
+				C6AA1A29257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +138,8 @@
 		C6AA1A46257AD5FF006CCF44 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				C6AA1A20257ACB98006CCF44 /* AppDelegate.swift */,
+				C6AA1A22257ACB98006CCF44 /* SceneDelegate.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -159,7 +150,6 @@
 				7896ED116D12D70FC75CAC06 /* Pods-Bully Sheet.debug.xcconfig */,
 				DE33C511D0ED3ADCE53B41F4 /* Pods-Bully Sheet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -278,13 +268,10 @@
 			files = (
 				C663296C25A1E64800EAD83C /* WebView2.swift in Sources */,
 				C6AA1A3B257AD54D006CCF44 /* StartVC.swift in Sources */,
-				C67AAA35257BFA3A00694B8A /* HabitLabel.swift in Sources */,
 				C663297225A2036D00EAD83C /* TableView.swift in Sources */,
 				09DD8BB925BDCB7800E7573D /* Habits+CoreDataClass.swift in Sources */,
-				C6AA1A3E257AD55B006CCF44 /* MainVC.swift in Sources */,
 				C65DA8212585456000B3BBDB /* SaveCoreData.swift in Sources */,
 				C6AA1A2B257ACB98006CCF44 /* Bully_Sheet.xcdatamodeld in Sources */,
-				C6AA1A25257ACB98006CCF44 /* ViewController.swift in Sources */,
 				C663297525AB3D9600EAD83C /* HabitCell.swift in Sources */,
 				C67AAA2F257AEF3200694B8A /* CustomTabBar.swift in Sources */,
 				C663296F25A1E88A00EAD83C /* WebView3.swift in Sources */,
